@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">E:\jmeter\apache-jmeter-4.0\lib\ext\jmeterdemo1.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="aa" elementType="Argument">
+            <stringProp name="Argument.name">aa</stringProp>
+            <stringProp name="Argument.value">12</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="i" elementType="Argument">
+            <stringProp name="Argument.name">i</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">sql</stringProp>
+        <stringProp name="dbUrl">${DB-url}</stringProp>
+        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">${DB-password}</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">${DB-user}</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT环境" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="authorization" elementType="Argument">
+            <stringProp name="Argument.name">authorization</stringProp>
+            <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NTc5NzE0OTksImV4cCI6MTU1ODAwMDI5OSwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJlaG91c2UtbXAtY2xpZW50Iiwic3ViIjoiN2UzMjg4ZTgtNjZiZS00YjkwLWFhNjQtZWI5MGY0YzI3ODk2IiwiYXV0aF90aW1lIjoxNTU3OTcxNDk5LCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJ1c2VybmFtZSI6ImRiYWRtaW4iLCJuYW1lIjoi5pWw5o2u5Lit5b-D566h55CG5ZGYIiwib3JnYW5pemF0aW9uSWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJvcmdhbml6YXRpb25OYW1lIjoi6L2u5a2Q56eR5oqAIiwiZGVwYXJ0bWVudElkIjoiZTQ4ZThkNjgtMzEwZC00ODQyLWJiZGEtOTQ3OWFhMWJkYzQ0IiwiZGVwYXJ0bWVudE5hbWUiOiLova7lrZDnp5HmioAiLCJhdXRoVG9rZW4iOiI2YjAxNGUxYS1lZjNiLTQ1M2QtOWMzMS1hNjRhNWFkZWVhNjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiNGY1MDAwMDAtNGM0Zi0wMjAwLWJiNjItMDhkNWMxZTk0ZjQxOkNSTei2hee6p-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC05NTU4LTA4ZDVjMjFiZWY2MjpFSFLlupTnlKjnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYmJiZC0wOGQzZDU1MjkwMjU6RkND5Zyo6IGM5ZGY5belIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWJkYzEtMDhkNmQzNTlmZmNjOkZJTueuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lZDMyLTA4ZDViYzk4ODk4YzpLRlTlupTnlKjnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZmIxZC0wOGQ2ODgxZDU5NWM65rWL6K-VIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTc3YWUtMDhkNWY4MjM3MTVkOuS6p-WTgeS4reW_gzIwMTgt566h55CG5ZGYMTIiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNmZlNi0wOGQ2MTdiOTg2MjA66L2m5Yqh6YCa57O757uf566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWM3ZjYtMDhkNWI5N2IyMmNlOui9puWei-WFs-ezu-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC03ZjA0LTA4ZDViYWZlNzIxMzrnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYzc2OC0wOGQ2NzUzNjEwN2I65Z-656GA5L-h5oGv566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWE1ODgtMDhkMzEwZTljY2NhOueugOWOhuaKlemAkiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1mNjY5LTA4ZDY4ODFkNTBkYzrlvIDlj5EiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtNjRlMS0wOGQ2Y2Q0NDc4ODI65byA5Y-R6KeS6ImyIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTMyOGItMDhkNjAzZGQ4YmQxOuWuouaIt-err-euoeeQhuiAhSIsIjRmNTAwMDAwLTRjNGYtMDIwMC02YTFhLTA4ZDYwM2RkOTFkMjrlrqLmiLfnq6_kvb_nlKjogIUiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYjlhMy0wOGQ0YmQ0MDRiYzg65a6i5oi36Zeo5bqXX2xjcm0iLCI0ZjUwMDAwMC00YzRmLTAyMDAtZTNkNy0wOGQ2MDNkZDg0MDg66K6k6K-B5Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTcyZDQtMDhkNWYyZDM5ZWRmOuaVsOaNruS4reW_g1JELeeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC00MDdkLTA4ZDYyNGZjN2U3NTrmlbDmja7kuK3lv4PnrqHnkIblkZgiLCI3MTc1ZDAwNC1lMDlkLTRiYTktOGRmMC00NGU0NDNkMjI3YTM65pWw5o2u5Lit5b-D566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWIyZDMtMDhkNjU1YTQ4OTBiOuaWh-eroOS_oeaBr-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi0yMGFiLTA4ZDY3N2M3NzBhNzrmvJTnpLoiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZTVjYi0wOGQ2ODgxZDc1ZTI65ryU56S6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWRhNzEtMDhkNWFiZDg0MzNhOuW6lOeUqOi2hee6p-euoeeQhuWRmCIsIjk0ODNmZTRhLTVhODUtNDU1Ny1iYWI5LWI3NDcxODFiNTYyMzrnlKjmiLfkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZjI3Mi0wOGQ2MDNkZDg4YTI66LWE5rqQ5o-Q5L6b6ICFIl0sImx1bnotc2hhcnAtdGVtcGxhdGUiOiIxLTQiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwid2FyZWhvdXNlLW1wLWJhc2ljLWFwaSIsIndhcmVob3VzZS1tcC1tYXN0ZXItYXBpIiwid2FyZWhvdXNlLW1wLXJ1bGUtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2NrY2hlY2stYXBpIiwid2FyZWhvdXNlLW1wLXN0b2NraW4tYXBpIiwid2FyZWhvdXNlLW1wLXN0b2NraW5wZW5kLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja291dC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXRwZW5kLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja3N0YXRpc3RpY3MtYXBpIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.Zabx5BxYMq4xHyc6gh_yqYoKvyGYjztpi1fUW3uiQcPZ9bcEp2c3wWPOa8buXNjzbIz8Wz8NMFs-i0ciU56Yi8R-H3EA2nhjeCz-JytKn_hxqA_uxKKcIwcTKRSyyHohH47iVZ8hf9uL2nOSq1X3xXS5mrkr24wRHtYGKwL-_4oUAYs6e5z4UkX5DEMki2-Q66EYbeRHivHu2ChMglda8CWT8gWiytjL-antxsUFlRPTxziv7adJoheMOW1m5mDLbdTKnQHHLcbAWiuf7Tiobp9ncvlqRvj6Z56Bn60w4pFStwSsTdsnpBhz2nLT5zY3cR0UeM2dz_r38b9H87T9tw</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">instock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">outstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">checkstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">stock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">waitinstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">waitoutstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">delivery.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com:3306/warehousemiddle_test</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">user_warehouse</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">Lunz2017</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">30</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="第一版-BeanShell Sampler" enabled="false">
+          <stringProp name="BeanShellSampler.query">//source(&quot;E:\\Eclipse\\workplace\\jmeterdemo1\\src\\jmeterdemo1\\Zwmsql.java&quot;);
+import jmeterdemo1.Zwmsql;
+//入参：dburl、dbuser、dbpassword、
+String dburl=&quot;jdbc:mysql://rm-bp1244pb26i5l8219.mysql.rds.aliyuncs.com:3306/productcenter_test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&quot;;
+String user=&quot;user_prod&quot;;
+String password=&quot;Lunz2017&quot;;
+//String random = &quot;unit75554&quot;;
+String random = vars.get(&quot;aa&quot;);
+String dbsql = &quot;select count(*) from tb_propertiesunit where Name=&apos;&quot;+random+&quot;&apos; and Level=&apos;1&apos;&quot;;
+Zwmsql a1 = new Zwmsql();
+String num = Zwmsql.getcount(dburl,user,password,dbsql,random);	
+System.out.println(num);
+
+while(!num.equals(&quot;0&quot;)){    //这地方被坑了，等号比对的地址，equal比对的值
+	random+=&quot;1&quot;;
+	dbsql = &quot;select count(*) from tb_propertiesunit where Name=&apos;&quot;+random+&quot;&apos; and Level=&apos;1&apos;&quot;;
+	System.out.println(dbsql);
+	System.out.println(random);
+	num = Zwmsql.getcount(dburl,user,password,dbsql,random);
+	System.out.println(num);
+	}
+vars.put(&quot;aa&quot;,random)
+
+	</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters"></stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="第二版-BeanShell Sampler" enabled="true">
+          <stringProp name="BeanShellSampler.query">import jmeterdemo1.Makerandom;
+//实现：生成随机数（可控制位数），到数据库中查询，若是有重复则再次生成直到无重复。要加统一标志自行拼接
+//需要修改：数据库连接、uesrname、password、随机数位数
+
+//定义入参
+String dburl=&quot;jdbc:mysql://rm-bp1244pb26i5l8219.mysql.rds.aliyuncs.com:3306/productcenter_test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&quot;;
+String user=&quot;user_prod&quot;;
+String password=&quot;Lunz2017&quot;;
+//控制生成几位随机数
+String random = Makerandom.makelength(6);
+String dbsql = &quot;select count(*) from tb_propertiesunit where Name=&apos;&quot;+random+&quot;&apos; and Level=&apos;1&apos;&quot;;
+
+//查询之前的随机数查询结果条数
+try {
+	String count = Makerandom.getcount(dburl,user,password,dbsql,random);
+	System.out.println(&quot;随机数:&quot;+random+&quot;++++++++&quot;+&quot;数量:&quot;+count);
+
+	while (!count.equals(&quot;0&quot;)){
+		random = Makerandom.makelength(4);
+		count = Zwmsql.getcount(dburl,user,password,dbsql,random);
+		System.out.println(&quot;循环后：&quot;+random+&quot;-----&quot;+count);
+	}
+
+} catch (Exception e) {
+	// TODO Auto-generated catch block
+	System.out.println(&quot;[未执行]报错如下&quot;);
+	e.printStackTrace();
+}
+
+vars.put(&quot;random&quot;,&quot;自己加标志&quot;+random+&quot;自己加标志&quot;);</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters"></stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${random}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">i = vars.get(&quot;i&quot;)+1;
+
+System.out.println(i+&quot;++++++++++++++++&quot;);
+vars.put(&quot;i&quot;,i);</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${i}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${i}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">i = vars.get(&quot;i&quot;)+1;
+
+System.out.println(i+&quot;++++++++++++++++&quot;);
+vars.put(&quot;i&quot;,i);</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${i}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${i}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">E:\jmeter\apache-jmeter-5.1.1\apache-jmeter-5.1.1\lib\ext\mysql-connector-java-8.0.15.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT环境" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="judge" elementType="Argument">
+            <stringProp name="Argument.name">judge</stringProp>
+            <stringProp name="Argument.value">N</stringProp>
+            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="authorization" elementType="Argument">
+            <stringProp name="Argument.name">authorization</stringProp>
+            <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NTg5MjE5NjYsImV4cCI6MTU1ODkyNTU2NiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmhvdXNlLW1wLWludGVybmFsLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJob3VzZS1tcC1pbnRlcm5hbC1jbGllbnQiLCJzdWIiOiI3ZTMyODhlOC02NmJlLTRiOTAtYWE2NC1lYjkwZjRjMjc4OTYiLCJhdXRoX3RpbWUiOjE1NTg5MjE5NjYsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IuaVsOaNruS4reW_g-euoeeQhuWRmCIsInVzZXJuYW1lIjoiZGJhZG1pbiIsIm5hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJvcmdhbml6YXRpb25JZCI6ImU0OGU4ZDY4LTMxMGQtNDg0Mi1iYmRhLTk0NzlhYTFiZGM0NCIsIm9yZ2FuaXphdGlvbk5hbWUiOiLova7lrZDnp5HmioAiLCJkZXBhcnRtZW50SWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJkZXBhcnRtZW50TmFtZSI6Iui9ruWtkOenkeaKgCIsImF1dGhUb2tlbiI6IjZiMDE0ZTFhLWVmM2ItNDUzZC05YzMxLWE2NGE1YWRlZWE2MiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyI0ZjUwMDAwMC00YzRmLTAyMDAtYmI2Mi0wOGQ1YzFlOTRmNDE6Q1JN6LaF57qn566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTk1NTgtMDhkNWMyMWJlZjYyOkVIUuW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iYmJkLTA4ZDNkNTUyOTAyNTpGQ0PlnKjogYzlkZjlt6UiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYmRjMS0wOGQ2ZDM1OWZmY2M6RklO566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWVkMzItMDhkNWJjOTg4OThjOktGVOW6lOeUqOeuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1mYjFkLTA4ZDY4ODFkNTk1YzrmtYvor5UiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNzdhZS0wOGQ1ZjgyMzcxNWQ65Lqn5ZOB5Lit5b-DMjAxOC3nrqHnkIblkZgxMiIsIjRmNTAwMDAwLTRjNGYtMDIwMC02ZmU2LTA4ZDYxN2I5ODYyMDrovabliqHpgJrns7vnu5_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYzdmNi0wOGQ1Yjk3YjIyY2U66L2m5Z6L5YWz57O75Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTdmMDQtMDhkNWJhZmU3MjEzOueuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1jNzY4LTA4ZDY3NTM2MTA3Yjrln7rnoYDkv6Hmga_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTU4OC0wOGQzMTBlOWNjY2E6566A5Y6G5oqV6YCSIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWY2NjktMDhkNjg4MWQ1MGRjOuW8gOWPkSIsIjVmYWMwMDAwLTNlMGEtMDAxNi02NGUxLTA4ZDZjZDQ0Nzg4MjrlvIDlj5Hop5LoibIiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMzI4Yi0wOGQ2MDNkZDhiZDE65a6i5oi356uv566h55CG6ICFIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZhMWEtMDhkNjAzZGQ5MWQyOuWuouaIt-err-S9v-eUqOiAhSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iOWEzLTA4ZDRiZDQwNGJjODrlrqLmiLfpl6jlupdfbGNybSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lM2Q3LTA4ZDYwM2RkODQwODrorqTor4HkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNzJkNC0wOGQ1ZjJkMzllZGY65pWw5o2u5Lit5b-DUkQt566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTQwN2QtMDhkNjI0ZmM3ZTc1OuaVsOaNruS4reW_g-euoeeQhuWRmCIsIjcxNzVkMDA0LWUwOWQtNGJhOS04ZGYwLTQ0ZTQ0M2QyMjdhMzrmlbDmja7kuK3lv4PnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYjJkMy0wOGQ2NTVhNDg5MGI65paH56ug5L-h5oGv566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTIwYWItMDhkNjc3Yzc3MGE3Oua8lOekuiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1lNWNiLTA4ZDY4ODFkNzVlMjrmvJTnpLoiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZGE3MS0wOGQ1YWJkODQzM2E65bqU55So6LaF57qn566h55CG5ZGYIiwiOTQ4M2ZlNGEtNWE4NS00NTU3LWJhYjktYjc0NzE4MWI1NjIzOueUqOaIt-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1mMjcyLTA4ZDYwM2RkODhhMjrotYTmupDmj5DkvpvogIUiXSwibHVuei1zaGFycC10ZW1wbGF0ZSI6IjEtNCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJ3YXJob3VzZS1tcC1pbnRlcm5hbC1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.SqFIYhDoqbfpS2r9ezaHd_EcVduU8I0ytPjsBtXbxnMiUWoFcyi78pKxifXLEoLl0JBaZK_WMQYMoffHgTKy_J6uKeCj26ncGabjuPqqkN_qXMHfT13OzbOghulaPWRzrGjSZLz_rvPmd_WqVa28yIJwGaylLmXlGvqqqpKFaJZp2JofbVd1-FvM13vI8DsHO4Qg0EOyUEphk-Z6CjfGXnYb8a9a3eeNBmVJFHGZxNubH6SLX6ZDUd9SyPTsubyv3AONuVyz6nxrMZVIgeYR7_EE275FOuxHcbfq2hhfH15BnDSDXSI9lnOyNoBQl5t5Wo5dHZdAnmk-pgSoWTjNJg</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">instock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">outstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">checkstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">stock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">waitinstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">waitoutstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">delivery.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础模块</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="子溪本地环境" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">instock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">outstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">checkstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">stock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">192.168.4.51</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">waitoutstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">delivery.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础模块</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://192.168.4.51:3306/warehouse_pet?serverTimezone=UTC&amp;allowMultiQueries=true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">root</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">123bjwhale</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">sql</stringProp>
+        <stringProp name="dbUrl">${DB-url}</stringProp>
+        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">${DB-password}</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">${DB-user}</stringProp>
+        <stringProp name="initQuery"></stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="content-type" elementType="Header">
+            <stringProp name="Header.name">content-type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain"></stringProp>
+        <stringProp name="HTTPSampler.port">8100</stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="前置准备" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC-数据清理" enabled="true">
+          <stringProp name="dataSource">sql</stringProp>
+          <stringProp name="query">select * from tb_waitinstockinfo;
+/*select id from tb_waitinstockinfo;*/
+
+/*   删除两张表数据  */
+delete from tb_waitinstockinfo where 1=1;
+delete from tb_waitinstockdetail where 1=1;
+
+/*   更新序列表  */
+update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_no=&apos;CZID&apos;;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-新建" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;auditStatus&quot;: 10,&#xd;
+  &quot;status&quot;: 10,&#xd;
+  &quot;waitInStockType&quot;: 0,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryId&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryName&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryNum&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-05-27T06:40:42.877Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdByName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-05-27T06:40:42.877Z&quot;,&#xd;
+  &quot;waitInStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;string&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;waitInStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port">8100</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="待入库-压测脚本" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">510</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">15</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV 数据文件设置" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="filename">E:/jmeter/workplace/仓储中台1.0.2.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">waitinstockinfoid,waitinstockid,relateid</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-新建" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;auditStatus&quot;: 10,&#xd;
+  &quot;status&quot;: 10,&#xd;
+  &quot;waitInStockType&quot;: 0,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryId&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryName&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryNum&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-05-27T06:06:28.793Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdByName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-05-27T06:06:28.793Z&quot;,&#xd;
+  &quot;waitInStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;string&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;waitInStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-编辑" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;auditStatus&quot;: 10,&#xd;
+  &quot;status&quot;:10,&#xd;
+  &quot;waitInStockType&quot;: 0,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryId&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryName&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryNum&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-05-08T05:02:26.027Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;id&quot;: &quot;CZIS0000000001&quot;,&#xd;
+  &quot;updatedById&quot;: &quot;string&quot;,&#xd;
+  &quot;updatedAt&quot;: &quot;2019-05-08T05:02:26.027Z&quot;,&#xd;
+  &quot;waitInStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;${waitinstockrelateid}&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;waitInStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;id&quot;: &quot;CZID0000000001&quot;,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-编辑${waitinstockinfoid}（参数化）" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;auditStatus&quot;: 10,&#xd;
+  &quot;status&quot;:10,&#xd;
+  &quot;waitInStockType&quot;: 0,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryId&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryName&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryTel&quot;: &quot;string&quot;,&#xd;
+  &quot;deliveryNum&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-05-08T05:02:26.027Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;id&quot;: &quot;${waitinstockinfoid}&quot;,&#xd;
+  &quot;updatedById&quot;: &quot;string&quot;,&#xd;
+  &quot;updatedAt&quot;: &quot;2019-05-08T05:02:26.027Z&quot;,&#xd;
+  &quot;waitInStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;3123&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;waitInStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;id&quot;: &quot;${waitinstockid}&quot;,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks</stringProp>
+          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">前提条件：[1]数据库中100调数据[2]主表字表一一对应[3]审核态10</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-设置审核状态" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/auditstatus/${waitinstockinfoid}?auditStatus=10</stringProp>
+          <stringProp name="HTTPSampler.method">PATCH</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-设置单据状态" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/status/${waitinstockinfoid}?billStatus=10</stringProp>
+          <stringProp name="HTTPSampler.method">PATCH</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-根据id获得单据" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/${waitinstockinfoid}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)精确-shipperid" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/paging?filter.rules[0].field=shipperId&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">预想使用shipperid查询</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)模糊-shipperid" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/paging?filter.rules[0].field=shipperId&amp;filter.rules[0].op=cn&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表数量精确" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/count?filter.rules[0].field=shipperId&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表数量模糊" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/count?filter.rules[0].field=shipperId&amp;filter.rules[0].op=cn&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表分页信息(1,10)精确" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstockdetails/paging?filter.rules[0].field=shipperId&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表分页信息(1,10)模糊" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstockdetails/paging?filter.rules[0].field=shipperId&amp;filter.rules[0].op=cn&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表数量精确" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstockdetails/count?filter.rules[0].field=shipperId&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表数量模糊" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstockdetails/count?filter.rules[0].field=shipperId&amp;filter.rules[0].op=cn&amp;filter.rules[0].data=string</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-根据relate获得单据信息" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstockdetails/relate/list?relateId=1234</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-测试接口" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/waitinstock/test</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.perfmon.PerfMonCollector guiclass="kg.apc.jmeter.vizualizers.PerfMonGui" testclass="kg.apc.jmeter.perfmon.PerfMonCollector" testname="jp@gc - PerfMon Metrics Collector" enabled="false">
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">1000</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+        <collectionProp name="metricConnections">
+          <collectionProp name="-290165865">
+            <stringProp name="1735034709">192.168.4.51</stringProp>
+            <stringProp name="1600768">4444</stringProp>
+            <stringProp name="66952">CPU</stringProp>
+            <stringProp name="0"></stringProp>
+          </collectionProp>
+          <collectionProp name="1704087110">
+            <stringProp name="1735034709">192.168.4.51</stringProp>
+            <stringProp name="1600768">4444</stringProp>
+            <stringProp name="-1993889503">Memory</stringProp>
+            <stringProp reference="../../collectionProp/stringProp[4]"/>
+          </collectionProp>
+          <collectionProp name="-701870935">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp name="1600768">4444</stringProp>
+            <stringProp name="2112896831">Disks I/O</stringProp>
+            <stringProp reference="../../collectionProp/stringProp[4]"/>
+          </collectionProp>
+          <collectionProp name="1816427126">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[3]/stringProp[2]"/>
+            <stringProp name="-274342153">Network I/O</stringProp>
+            <stringProp reference="../../collectionProp/stringProp[4]"/>
+          </collectionProp>
+        </collectionProp>
+      </kg.apc.jmeter.perfmon.PerfMonCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

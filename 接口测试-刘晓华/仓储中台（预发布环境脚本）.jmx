@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -20,7 +20,7 @@
           </elementProp>
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">authorization</stringProp>
-            <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NTc0NjU5MDcsImV4cCI6MTU1NzQ2OTUwNywiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmhvdXNlLW1wLWludGVybmFsLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJob3VzZS1tcC1pbnRlcm5hbC1jbGllbnQiLCJzdWIiOiI1ZmFjMDAwMC0zZTBhLTAwMTYtM2Q3My0wOGQ2OWY5YTdmMGYiLCJhdXRoX3RpbWUiOjE1NTc0NjU5MDcsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IndoMjAxOSIsInVzZXJuYW1lIjoid2gyMDE5IiwibmFtZSI6IndoMjAxOSIsIm9yZ2FuaXphdGlvbklkIjoiNGY1MDAwMDAtNGM0Zi0wMjAwLWU3M2EtMDhkNTZmN2Q1MWM3Iiwib3JnYW5pemF0aW9uTmFtZSI6IuS4reeRnumHkeacjeeglOWPkeS4reW_gyIsImRlcGFydG1lbnRJZCI6IjRmNTAwMDAwLTRjNGYtMDIwMC1lNzNhLTA4ZDU2ZjdkNTFjNyIsImRlcGFydG1lbnROYW1lIjoi5Lit55Ge6YeR5pyN56CU5Y-R5Lit5b-DIiwiYXV0aFRva2VuIjoiZmI3ODlhNjctNWZmNC00YzQxLWFjMmEtNWM4YjMwMmQ5MDgzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjpbIjYzYTMwMDAwLTU3NzEtNDQ2ZC04MTYwLTA4ZDU2N2MzNzAyMjrov5Dnu7TkuoznuqciLCI0ZjUwMDAwMC00YzRmLTAyMDAtNjM3NS0wOGQ1NDc0ZjAxZDE66L-Q57u05LiA5Y-3Il0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJ3YXJob3VzZS1tcC1pbnRlcm5hbC1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.SCxo20iKjcrV53RTjShJmd_lyq2fYYXtZP05jrJC6RfWMISP_vouHQAZq2iAAERvmYf5jc2JyiyChmROY8C3_3BOsyA-EMFWMMPWfRlMOgtYQ3YN3a5-qnIv10Dob7X2_mSBXOp6KGqpmhB-CJY2f11FrYJ2Wuw7eunNDXv2x3IcQ1FQ9qBzx1t3jqQJVx3PEFWSq6hN2C4z7QyqW4hKQUg77X82HVK75ftzXsdxWrgKx4kC_ICWSjqPcX8Q3WVs5av44Yn6dfr3Z0_Q7O8-aZJsTQ6NKm10NFbhv_YyTubbeyj1yoTJqAzWz33oGAKW8vNGiu4WczZ0h9SWX-opCQ</stringProp>
+            <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NTkyMDQ0NTgsImV4cCI6MTU1OTIwODA1OCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1wcmUubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LXByZS5sdW56LmNuL3Jlc291cmNlcyIsIndhcmhvdXNlLW1wLWludGVybmFsLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJob3VzZS1tcC1pbnRlcm5hbC1jbGllbnQiLCJzdWIiOiI4ZTI0MDAwMC0zZTEyLTAwMTYtZDUzMi0wOGQ1Y2YzNTZhMzAiLCJhdXRoX3RpbWUiOjE1NTkyMDQ0NTgsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6Iui1teaWh-aYjiIsInVzZXJuYW1lIjoiWlIxODA2MDAzMSIsIm5hbWUiOiLotbXmlofmmI4iLCJvcmdhbml6YXRpb25JZCI6IjhmYjAwMDAwLTNlMGQtMDAxNi1hODc5LTA4ZDUyZmIwYjgyMSIsIm9yZ2FuaXphdGlvbk5hbWUiOiLkuK3nkZ7noJTlj5HkuK3lv4Pph5HmnI3ova_ku7bnoJTlj5HkuK3lv4MiLCJkZXBhcnRtZW50SWQiOiI4ZTI0MDAwMC0zZTEyLTAwMTYtOTNkOS0wOGQ1MmZiNDE0OWQiLCJkZXBhcnRtZW50TmFtZSI6IuS4reeRnueglOWPkeS4reW_g-mHkeacjei9r-S7tueglOWPkeS4reW_g-i0qOmHj-S_neivgemDqFFBMee7hCIsImF1dGhUb2tlbiI6ImJjODg1NjIzLTdlOWEtNDZiYi1iN2RmLTBjYmI0MDJlN2MzNCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyI4ZTI0MDAwMC0zZTEyLTAwMTYtODNhZi0wOGQ1MWFhOGM1NGI65L-d6Zmp5Lit5b-D566h55CG5ZGYIiwiOGUyNDAwMDAtM2UxMi0wMDE2LTFkY2QtMDhkNjFhMDBhM2VjOui2hee6p-euoeeQhuWRmCIsIjhlMjQwMDAwLTNlMTItMDAxNi0zZTA0LTA4ZDYwY2I2YmFjOTrmlbDmja7kuK3lv4NSRC3nrqHnkIblkZgiLCIwMmM0OWNmNi02OTQzLTRiOWMtOGE5Ni05OWRkNzY3OTU2NWQ65Zyo6IGM5ZGY5belIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJ3YXJob3VzZS1tcC1pbnRlcm5hbC1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.PeF5bdBizAp5miqK3p8pRftVX7LYPJkqmmK-eMeO1uSdeBlFpHpeJRqcadXrnHsSdfC4zVFgNFyiIS8K3-EmLJLoPswxkOJG-Jr0kTQx6a8meMtZwkV0MvcMlQ16_0HGS7BRDvnvchDcXppVLWKdP_tJpCkeJBxhtHWTqkmeTFzeuuHaoyQfD9tyY6mt8t1ett8VLhGXibFnRnaWUqnJ9sLkqOHB0E5wakPcH-km7dP2s1Ggay2hwgigWLOnjkah5qK6EtcLRIKkIvua8YqO9FnWwZXwCDdPul3xr5GavxRSD4J932UfnVO8HmrYGKhb1A5LqpVmsm09FNVfRhfLlg</stringProp>
           </elementProp>
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Content-Type</stringProp>
@@ -34,11 +34,11 @@
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
         <stringProp name="dataSource">warehousemiddle_test</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql:// rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com/warehousemiddle_test?allowMultiQueries=true</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql:// rm-bp1lun0fi3cn2d20z2o.mysql.rds.aliyuncs.com/warehousemiddle_pre?allowMultiQueries=true</stringProp>
         <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
         <stringProp name="initQuery"></stringProp>
         <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">Lunz2017</stringProp>
+        <stringProp name="password">Yjt*ewJ7</stringProp>
         <stringProp name="poolMax">0</stringProp>
         <stringProp name="timeout">10000</stringProp>
         <stringProp name="transactionIsolation">DEFAULT</stringProp>
@@ -554,7 +554,7 @@ values(&apos;CZDD0000000087&apos;,&apos;CZDT0000000087&apos;,&apos;CZDD000000001
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
             <intProp name="Assertion.test_type">16</intProp>
           </ResponseAssertion>
           <hashTree/>
@@ -13826,9 +13826,12 @@ delete from basic_warehouseinfo where code like &apos;%XH%&apos;;</stringProp>
         </JDBCSampler>
         <hashTree/>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="先把txt清空" enabled="true">
-          <stringProp name="BeanShellSampler.query">import xuan.*;
-String filePath1 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
-AppendFile.clearFile(filePath1);</stringProp>
+          <stringProp name="BeanShellSampler.query">//import xuan.*;
+//String filePath1 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
+//AppendFile.clearFile(filePath1);
+
+source(&quot;E:\\Eclipse\\workplace\\Demojmeter\\src\\Abc.java&quot;)
+Abc.clearInfoForFile(&quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -13882,11 +13885,16 @@ AppendFile.clearFile(filePath1);</stringProp>
           <hashTree/>
         </hashTree>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="将提取到的信息存到txt文档中" enabled="true">
-          <stringProp name="BeanShellSampler.query">import xuan.*;
+          <stringProp name="BeanShellSampler.query">//import xuan.*;
+source(&quot;E:\\Eclipse\\workplace\\Demojmeter\\src\\Abc.java&quot;)
 System.out.println(&quot;******写入文件*************&quot;);
 String filePath = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
 String NozjparentID = vars.get(&quot;nozjparentID&quot;);
-AppendFile.appendFile(filePath,NozjparentID);</stringProp>
+//AppendFile.appendFile(filePath,NozjparentID);
+
+
+
+Abc.appendInfoToFile(filePath,NozjparentID);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -23577,9 +23585,11 @@ delete from basic_warehouseinfo where code like &apos;%XH%&apos;;</stringProp>
         </JDBCSampler>
         <hashTree/>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="先把txt清空" enabled="true">
-          <stringProp name="BeanShellSampler.query">import xuan.*;
+          <stringProp name="BeanShellSampler.query">//import xuan.*;
+source(&quot;E:\\Eclipse\\workplace\\Demojmeter\\src\\Abc.java&quot;)
 String filePath1 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
-AppendFile.clearFile(filePath1);</stringProp>
+//AppendFile.clearFile(filePath1);
+Abc.clearInfoForFile(filePath1);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -23633,11 +23643,13 @@ AppendFile.clearFile(filePath1);</stringProp>
           <hashTree/>
         </hashTree>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="将提取到的信息存到txt文档中" enabled="true">
-          <stringProp name="BeanShellSampler.query">import xuan.*;
+          <stringProp name="BeanShellSampler.query">//import xuan.*;
+source(&quot;E:\\Eclipse\\workplace\\Demojmeter\\src\\Abc.java&quot;)
 System.out.println(&quot;******写入文件*************&quot;);
 String filePath = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
 String NozjparentID = vars.get(&quot;nozjparentID&quot;);
-AppendFile.appendFile(filePath,NozjparentID);</stringProp>
+//AppendFile.appendFile(filePath,NozjparentID);
+Abc.appendInfoToFile(filePath,NozjparentID);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -23915,17 +23927,23 @@ delete from basic_warehouseinfo where code like &apos;%XH%&apos;;</stringProp>
         </JDBCSampler>
         <hashTree/>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="先把txt清空" enabled="true">
-          <stringProp name="BeanShellSampler.query">import xuan.*;
+          <stringProp name="BeanShellSampler.query">//import xuan.*;
+source(&quot;E:\\Eclipse\\workplace\\Demojmeter\\src\\Abc.java&quot;)
 String filePath1 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
-AppendFile.clearFile(filePath1);
+//AppendFile.clearFile(filePath1);
 String filePath2 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//sparentID101.txt&quot;;
-AppendFile.clearFile(filePath2);
+//AppendFile.clearFile(filePath2);
 String filePath3 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//yzjparentID.txt&quot;;
-AppendFile.clearFile(filePath3);
+//AppendFile.clearFile(filePath3);
 String filePath4 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//hwid.txt&quot;;
-AppendFile.clearFile(filePath4);
+//AppendFile.clearFile(filePath4);
 String filePath5 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//2hwid.txt&quot;;
-AppendFile.clearFile(filePath5);</stringProp>
+//AppendFile.clearFile(filePath5);
+Abc.appendInfoToFile(filePath1);
+Abc.appendInfoToFile(filePath2);
+Abc.appendInfoToFile(filePath3);
+Abc.appendInfoToFile(filePath4);
+Abc.appendInfoToFile(filePath5);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -24390,27 +24408,29 @@ AppendFile.clearFile(filePath5);</stringProp>
           <hashTree/>
         </hashTree>
         <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="将提取到的信息存到txt文档中" enabled="true">
-          <stringProp name="BeanShellSampler.query">import xuan.*;
+          <stringProp name="BeanShellSampler.query">//import xuan.*;
+source(&quot;E:\\Eclipse\\workplace\\Demojmeter\\src\\Abc.java&quot;)
 System.out.println(&quot;******写入文件*************&quot;);
 String filePath = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//nozjparentID.txt&quot;;
 String NozjparentID = vars.get(&quot;nozjparentID&quot;);
-AppendFile.appendFile(filePath,NozjparentID);
-
+//AppendFile.appendFile(filePath,NozjparentID);
+Abc.clearInfoForFile(filePath,NozjparentID);
 String filePath1 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//yzjparentID.txt&quot;;
 String YzjparentID = vars.get(&quot;yzjparentID&quot;);
-AppendFile.appendFile(filePath1,YzjparentID);
-
+//AppendFile.appendFile(filePath1,YzjparentID);
+Abc.clearInfoForFile(filePath1,YzjparentID);
 String filePath2 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//sparentID101.txt&quot;;
 String SparentID101 = vars.get(&quot;sparentID101&quot;);
-AppendFile.appendFile(filePath2,SparentID101);
-
+//AppendFile.appendFile(filePath2,SparentID101);
+Abc.clearInfoForFile(filePath2,SparentID101);
 String filePath3 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//hwid.txt&quot;;
 String hwid = vars.get(&quot;hwid&quot;);
-AppendFile.appendFile(filePath3,hwid);
-
+//AppendFile.appendFile(filePath3,hwid);
+Abc.clearInfoForFile(filePath3,hwid);
 String filePath4 = &quot;E:/2019年/功能测试/仓储中台/1.1.0/接口测试//2hwid.txt&quot;;
 String hwid2j = vars.get(&quot;2hwid&quot;);
-AppendFile.appendFile(filePath4,hwid2j);</stringProp>
+//AppendFile.appendFile(filePath4,hwid2j);
+Abc.clearInfoForFile(filePath4,hwid2j);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>
           <stringProp name="BeanShellSampler.parameters"></stringProp>
           <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
@@ -36685,8 +36705,8 @@ update basic_warehouseinfo set deleted=1  where Name =&apos;xh测试三级仓库
           <stringProp name="1514619042">37zifu</stringProp>
         </collectionProp>
         <collectionProp name="UserParameters.thread_values">
-          <collectionProp name="-606128205">
-            <stringProp name="-723161009">basic.fat.lunz.cn</stringProp>
+          <collectionProp name="-1471749976">
+            <stringProp name="310905861">ware-internal-api.pre.lunz.cn</stringProp>
             <stringProp name="3294">ge</stringProp>
             <stringProp name="3309">gt</stringProp>
             <stringProp name="3449">le</stringProp>

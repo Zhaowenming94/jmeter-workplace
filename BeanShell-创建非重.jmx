@@ -308,21 +308,16 @@ String random = &quot;111&quot;;
 String dbsql = &quot;select count(*) from tb_propertiesunit where Name=&apos;&quot;+random+&quot;&apos; and Level=&apos;1&apos;&quot;;
 
 //查询之前的随机数查询结果条数
-try {
-	String count = Makerandom.getcount(dburl,user,password,dbsql,random);
-	System.out.println(&quot;随机数:&quot;+random+&quot;++++++++&quot;+&quot;数量:&quot;+count);
+String count = Makerandom.getcount(dburl,user,password,dbsql,random);
+System.out.println(&quot;随机数:&quot;+random+&quot;++++++++&quot;+&quot;数量:&quot;+count);
 
-	while (!count.equals(&quot;1&quot;)){
-		random = Makerandom.makelength(1);
-		count = Zwmsql.getcount(dburl,user,password,dbsql,random);
-		System.out.println(&quot;循环后：&quot;+random+&quot;-----&quot;+count);
+while(1==1){
+	random = Makerandom.makelength(1);
+	count = Zwmsql.getcount(dburl,user,password,dbsql,random);
+	System.out.println(&quot;循环后：&quot;+random+&quot;-----&quot;+count);
 	}
 
-} catch (Exception e) {
-	// TODO Auto-generated catch block
-	System.out.println(&quot;[未执行]报错如下&quot;);
-	e.printStackTrace();
-}
+} 
 
 vars.put(&quot;random&quot;,&quot;自己加标志&quot;+random+&quot;自己加标志&quot;);</stringProp>
           <stringProp name="BeanShellSampler.filename"></stringProp>

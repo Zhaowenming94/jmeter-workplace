@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="authorization" elementType="Argument">
+              <stringProp name="Argument.name">authorization</stringProp>
+              <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NjA0MDUyNzIsImV4cCI6MTU2MDQzNDA3MiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJlaG91c2UtbXAtY2xpZW50Iiwic3ViIjoiN2UzMjg4ZTgtNjZiZS00YjkwLWFhNjQtZWI5MGY0YzI3ODk2IiwiYXV0aF90aW1lIjoxNTYwNDA1MjcyLCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJ1c2VybmFtZSI6ImRiYWRtaW4iLCJuYW1lIjoi5pWw5o2u5Lit5b-D566h55CG5ZGYIiwib3JnYW5pemF0aW9uSWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJvcmdhbml6YXRpb25OYW1lIjoi6L2u5a2Q56eR5oqAIiwiZGVwYXJ0bWVudElkIjoiZTQ4ZThkNjgtMzEwZC00ODQyLWJiZGEtOTQ3OWFhMWJkYzQ0IiwiZGVwYXJ0bWVudE5hbWUiOiLova7lrZDnp5HmioAiLCJhdXRoVG9rZW4iOiI2YjAxNGUxYS1lZjNiLTQ1M2QtOWMzMS1hNjRhNWFkZWVhNjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiNGY1MDAwMDAtNGM0Zi0wMjAwLWJiNjItMDhkNWMxZTk0ZjQxOkNSTei2hee6p-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC05NTU4LTA4ZDVjMjFiZWY2MjpFSFLlupTnlKjnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYmJiZC0wOGQzZDU1MjkwMjU6RkND5Zyo6IGM5ZGY5belIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWJkYzEtMDhkNmQzNTlmZmNjOkZJTueuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lZDMyLTA4ZDViYzk4ODk4YzpLRlTlupTnlKjnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZmIxZC0wOGQ2ODgxZDU5NWM65rWL6K-VIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWU3NmItMDhkNmVmMDZlY2VjOui2hee6p-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC02ZmU2LTA4ZDYxN2I5ODYyMDrovabliqHpgJrns7vnu5_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYzdmNi0wOGQ1Yjk3YjIyY2U66L2m5Z6L5YWz57O75Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTdmMDQtMDhkNWJhZmU3MjEzOueuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1jNzY4LTA4ZDY3NTM2MTA3Yjrln7rnoYDkv6Hmga_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTU4OC0wOGQzMTBlOWNjY2E6566A5Y6G5oqV6YCSIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWY2NjktMDhkNjg4MWQ1MGRjOuW8gOWPkSIsIjVmYWMwMDAwLTNlMGEtMDAxNi02NGUxLTA4ZDZjZDQ0Nzg4MjrlvIDlj5Hop5LoibIiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMzI4Yi0wOGQ2MDNkZDhiZDE65a6i5oi356uv566h55CG6ICFIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZhMWEtMDhkNjAzZGQ5MWQyOuWuouaIt-err-S9v-eUqOiAhSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iOWEzLTA4ZDRiZDQwNGJjODrlrqLmiLfpl6jlupdfbGNybSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lM2Q3LTA4ZDYwM2RkODQwODrorqTor4HkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNzJkNC0wOGQ1ZjJkMzllZGY65pWw5o2u5Lit5b-DUkQt566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTQwN2QtMDhkNjI0ZmM3ZTc1OuaVsOaNruS4reW_g-euoeeQhuWRmCIsIjcxNzVkMDA0LWUwOWQtNGJhOS04ZGYwLTQ0ZTQ0M2QyMjdhMzrmlbDmja7kuK3lv4PnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYjJkMy0wOGQ2NTVhNDg5MGI65paH56ug5L-h5oGv566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTIwYWItMDhkNjc3Yzc3MGE3Oua8lOekuiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1lNWNiLTA4ZDY4ODFkNzVlMjrmvJTnpLoiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZGE3MS0wOGQ1YWJkODQzM2E65bqU55So6LaF57qn566h55CG5ZGYIiwiOTQ4M2ZlNGEtNWE4NS00NTU3LWJhYjktYjc0NzE4MWI1NjIzOueUqOaIt-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1mMjcyLTA4ZDYwM2RkODhhMjrotYTmupDmj5DkvpvogIUiXSwibHVuei1zaGFycC10ZW1wbGF0ZSI6IjEtNCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJ3YXJlaG91c2UtbXAtYmFzaWMtYXBpIiwid2FyZWhvdXNlLW1wLW1hc3Rlci1hcGkiLCJ3YXJlaG91c2UtbXAtcnVsZS1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tjaGVjay1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tpbi1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tpbnBlbmQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0LWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja291dHBlbmQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrc3RhdGlzdGljcy1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.Um8BOXmYYMWqLfHY4uogAE8FlgzcvthEDo77osGrhDZqYyPmd6eOleUreaVSykEHd7Tcy24muyhDhJa8GylauJzAbtII-vC-MKYGXoeB9M9fclkmABhJ2G4qxDnqCieUxBtOZab-DX9jmGxEH2SZaf4KkqKGsP1lMXG4MBUnVLaeRec9DxAJwOuo_P_fP5vFKirhNCjBFanF-put96JiO_ToMjQH9YwlEeCy1OW3JmiscfvoCVEXjrdUUu7LVj7r9slitbvgxvORA0DXQVxmg1Kqezr6qYeqtQPpK3ioA6mlJN5N9UCUkf0_sRaXAlhU266cvR_mOnMH22jZCIhIEA</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="instock" elementType="Argument">
+              <stringProp name="Argument.name">instock</stringProp>
+              <stringProp name="Argument.value">instock.fat.lunz.cn</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">authorization</stringProp>
+              <stringProp name="Header.value">${authorization}</stringProp>
+            </elementProp>
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-06-13T05:54:39.702Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;auditStatus&quot;: 0,&#xd;
+  &quot;status&quot;: 0,&#xd;
+  &quot;inStockType&quot;: 0,&#xd;
+  &quot;fromId&quot;: &quot;string&quot;,&#xd;
+  &quot;fromName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdByName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-06-13T05:54:39.702Z&quot;,&#xd;
+  &quot;inStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;string&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;string&quot;,&#xd;
+      &quot;guNumber&quot;: &quot;string&quot;,&#xd;
+      &quot;produceTime&quot;: &quot;2019-06-13T05:54:39.702Z&quot;,&#xd;
+      &quot;expirationTime&quot;: &quot;2019-06-13T05:54:39.702Z&quot;,&#xd;
+      &quot;storeSpaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;inStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${instock}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/instocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

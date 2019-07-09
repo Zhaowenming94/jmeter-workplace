@@ -14,15 +14,9 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT环境" enabled="false">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="judge" elementType="Argument">
-            <stringProp name="Argument.name">judge</stringProp>
-            <stringProp name="Argument.value">N</stringProp>
-            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="authorization" elementType="Argument">
             <stringProp name="Argument.name">authorization</stringProp>
-            <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NTg5MjE5NjYsImV4cCI6MTU1ODkyNTU2NiwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmhvdXNlLW1wLWludGVybmFsLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJob3VzZS1tcC1pbnRlcm5hbC1jbGllbnQiLCJzdWIiOiI3ZTMyODhlOC02NmJlLTRiOTAtYWE2NC1lYjkwZjRjMjc4OTYiLCJhdXRoX3RpbWUiOjE1NTg5MjE5NjYsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IuaVsOaNruS4reW_g-euoeeQhuWRmCIsInVzZXJuYW1lIjoiZGJhZG1pbiIsIm5hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJvcmdhbml6YXRpb25JZCI6ImU0OGU4ZDY4LTMxMGQtNDg0Mi1iYmRhLTk0NzlhYTFiZGM0NCIsIm9yZ2FuaXphdGlvbk5hbWUiOiLova7lrZDnp5HmioAiLCJkZXBhcnRtZW50SWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJkZXBhcnRtZW50TmFtZSI6Iui9ruWtkOenkeaKgCIsImF1dGhUb2tlbiI6IjZiMDE0ZTFhLWVmM2ItNDUzZC05YzMxLWE2NGE1YWRlZWE2MiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyI0ZjUwMDAwMC00YzRmLTAyMDAtYmI2Mi0wOGQ1YzFlOTRmNDE6Q1JN6LaF57qn566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTk1NTgtMDhkNWMyMWJlZjYyOkVIUuW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iYmJkLTA4ZDNkNTUyOTAyNTpGQ0PlnKjogYzlkZjlt6UiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYmRjMS0wOGQ2ZDM1OWZmY2M6RklO566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWVkMzItMDhkNWJjOTg4OThjOktGVOW6lOeUqOeuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1mYjFkLTA4ZDY4ODFkNTk1YzrmtYvor5UiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNzdhZS0wOGQ1ZjgyMzcxNWQ65Lqn5ZOB5Lit5b-DMjAxOC3nrqHnkIblkZgxMiIsIjRmNTAwMDAwLTRjNGYtMDIwMC02ZmU2LTA4ZDYxN2I5ODYyMDrovabliqHpgJrns7vnu5_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYzdmNi0wOGQ1Yjk3YjIyY2U66L2m5Z6L5YWz57O75Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTdmMDQtMDhkNWJhZmU3MjEzOueuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1jNzY4LTA4ZDY3NTM2MTA3Yjrln7rnoYDkv6Hmga_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTU4OC0wOGQzMTBlOWNjY2E6566A5Y6G5oqV6YCSIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWY2NjktMDhkNjg4MWQ1MGRjOuW8gOWPkSIsIjVmYWMwMDAwLTNlMGEtMDAxNi02NGUxLTA4ZDZjZDQ0Nzg4MjrlvIDlj5Hop5LoibIiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMzI4Yi0wOGQ2MDNkZDhiZDE65a6i5oi356uv566h55CG6ICFIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZhMWEtMDhkNjAzZGQ5MWQyOuWuouaIt-err-S9v-eUqOiAhSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iOWEzLTA4ZDRiZDQwNGJjODrlrqLmiLfpl6jlupdfbGNybSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lM2Q3LTA4ZDYwM2RkODQwODrorqTor4HkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNzJkNC0wOGQ1ZjJkMzllZGY65pWw5o2u5Lit5b-DUkQt566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTQwN2QtMDhkNjI0ZmM3ZTc1OuaVsOaNruS4reW_g-euoeeQhuWRmCIsIjcxNzVkMDA0LWUwOWQtNGJhOS04ZGYwLTQ0ZTQ0M2QyMjdhMzrmlbDmja7kuK3lv4PnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYjJkMy0wOGQ2NTVhNDg5MGI65paH56ug5L-h5oGv566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTIwYWItMDhkNjc3Yzc3MGE3Oua8lOekuiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1lNWNiLTA4ZDY4ODFkNzVlMjrmvJTnpLoiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZGE3MS0wOGQ1YWJkODQzM2E65bqU55So6LaF57qn566h55CG5ZGYIiwiOTQ4M2ZlNGEtNWE4NS00NTU3LWJhYjktYjc0NzE4MWI1NjIzOueUqOaIt-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1mMjcyLTA4ZDYwM2RkODhhMjrotYTmupDmj5DkvpvogIUiXSwibHVuei1zaGFycC10ZW1wbGF0ZSI6IjEtNCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJ3YXJob3VzZS1tcC1pbnRlcm5hbC1hcGkiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.SqFIYhDoqbfpS2r9ezaHd_EcVduU8I0ytPjsBtXbxnMiUWoFcyi78pKxifXLEoLl0JBaZK_WMQYMoffHgTKy_J6uKeCj26ncGabjuPqqkN_qXMHfT13OzbOghulaPWRzrGjSZLz_rvPmd_WqVa28yIJwGaylLmXlGvqqqpKFaJZp2JofbVd1-FvM13vI8DsHO4Qg0EOyUEphk-Z6CjfGXnYb8a9a3eeNBmVJFHGZxNubH6SLX6ZDUd9SyPTsubyv3AONuVyz6nxrMZVIgeYR7_EE275FOuxHcbfq2hhfH15BnDSDXSI9lnOyNoBQl5t5Wo5dHZdAnmk-pgSoWTjNJg</stringProp>
+            <stringProp name="Argument.value">curl -X GET &quot;http://waitinstock.pet.lunz.cn/api/v1/waitinstocks/21&quot; -H &quot;accept: application/json&quot; -H &quot;authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NjI1NTQ1NzQsImV4cCI6MTU2MjU4MzM3NCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1wZXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LXBldC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJlaG91c2UtbXAtY2xpZW50Iiwic3ViIjoiNzE1NDAwMDAtM2UxMy0wMDE2LWM0OTktMDhkNmY1MjIyYzU2IiwiYXV0aF90aW1lIjoxNTYyNTU0NTc0LCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiLku5PlgqjkuK3lj7DnrqHnkIblkZgiLCJ1c2VybmFtZSI6IndoYWRtaW4iLCJuYW1lIjoi5LuT5YKo5Lit5Y-w566h55CG5ZGYIiwib3JnYW5pemF0aW9uSWQiOiI3MWQ5YWQxNC05ZWE0LWU1MTEtODBkOS05OTQ0MjJkNDcyY2YiLCJvcmdhbml6YXRpb25OYW1lIjoi57O757uf5byA5Y-RIiwiZGVwYXJ0bWVudElkIjoiNzFkOWFkMTQtOWVhNC1lNTExLTgwZDktOTk0NDIyZDQ3MmNmIiwiZGVwYXJ0bWVudE5hbWUiOiLns7vnu5_lvIDlj5EiLCJhdXRoVG9rZW4iOiI2Yzc4YWFkOS1hZjA5LTQ0NWEtOTNlNi01NWFiZDI5NGE1ZjQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiI4ZTI0MDAwMC0zZTEyLTAwMTYtYmM0YS0wOGQ2MGVlNjU1MGY65a6i5oi356uv5L2_55So6ICFIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.aIwmXNlWa_eTUdMi9Enz8p5V2wAak6Cr2s1arL3LHP0DMxtrlwTffoDXB2hjkDLcLhP6lIbjs-RVEqBD6hb4mI4Iu1DJdYalObGh3E6PbChDiIgEnnJ7BxkBspHBE5Aqezq8w5bvGN63VcjIsEdNGum-9UeYtFKbd1NtHDvM7cN7M95Qbn7FZDVRYurHPMV7h5cccCqCWqLfQFwDiQQqprsdgNDHmJ6d5J1l6qMzeBVak9lLMJBoIPrY-M3p6WuEy_2vYRQjbE1XH4YGTo21cNrrfQ8JllzZKDKSYVmbVWOL7rekdeJD8Ce62bNHkc8A3snhYlNHi4JVCBZCZij-3w&quot;</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="stockin" elementType="Argument">
@@ -101,7 +95,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="stockin" elementType="Argument">
             <stringProp name="Argument.name">stockin</stringProp>
-            <stringProp name="Argument.value">instock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.value">instock.pet.lunz.cn</stringProp>
             <stringProp name="Argument.desc">入库</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -131,7 +125,7 @@
           </elementProp>
           <elementProp name="pendin" elementType="Argument">
             <stringProp name="Argument.name">pendin</stringProp>
-            <stringProp name="Argument.value">192.168.4.51</stringProp>
+            <stringProp name="Argument.value">waitinstock.pet.lunz.cn</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">待入库</stringProp>
           </elementProp>
@@ -202,12 +196,12 @@
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
         <stringProp name="HTTPSampler.domain"></stringProp>
-        <stringProp name="HTTPSampler.port">8100</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
         <stringProp name="HTTPSampler.protocol"></stringProp>
         <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
         <stringProp name="HTTPSampler.path"></stringProp>
         <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">10000</stringProp>
         <stringProp name="HTTPSampler.response_timeout"></stringProp>
       </ConfigTestElement>
       <hashTree/>
@@ -215,7 +209,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -327,11 +321,11 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">20</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.duration">300</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
@@ -339,8 +333,8 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV 数据文件设置" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
-          <stringProp name="filename">E:/jmeter/workplace/仓储中台1.0.2.csv</stringProp>
-          <boolProp name="ignoreFirstLine">true</boolProp>
+          <stringProp name="filename">H:\jmeter\workplace\仓储中台1.0.2.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
@@ -348,7 +342,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="variableNames">waitinstockinfoid,waitinstockid,relateid</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-新建" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-新建" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -426,85 +420,6 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-编辑" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-  &quot;code&quot;: &quot;string&quot;,&#xd;
-  &quot;auditStatus&quot;: 10,&#xd;
-  &quot;status&quot;:10,&#xd;
-  &quot;waitInStockType&quot;: 0,&#xd;
-  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
-  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
-  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
-  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
-  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
-  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
-  &quot;deliveryId&quot;: &quot;string&quot;,&#xd;
-  &quot;deliveryName&quot;: &quot;string&quot;,&#xd;
-  &quot;deliveryTel&quot;: &quot;string&quot;,&#xd;
-  &quot;deliveryNum&quot;: &quot;string&quot;,&#xd;
-  &quot;remarks&quot;: &quot;string&quot;,&#xd;
-  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
-  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
-  &quot;publishedAt&quot;: &quot;2019-05-08T05:02:26.027Z&quot;,&#xd;
-  &quot;totalnoTax&quot;: 0,&#xd;
-  &quot;totalInTax&quot;: 0,&#xd;
-  &quot;totalTax&quot;: 0,&#xd;
-  &quot;id&quot;: &quot;CZIS0000000001&quot;,&#xd;
-  &quot;updatedById&quot;: &quot;string&quot;,&#xd;
-  &quot;updatedAt&quot;: &quot;2019-05-08T05:02:26.027Z&quot;,&#xd;
-  &quot;waitInStockDetails&quot;: [&#xd;
-    {&#xd;
-      &quot;relateId&quot;: &quot;${waitinstockrelateid}&quot;,&#xd;
-      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
-      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
-      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
-      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
-      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
-      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
-      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
-      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
-      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
-      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
-      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
-      &quot;specId&quot;: &quot;string&quot;,&#xd;
-      &quot;specName&quot;: &quot;string&quot;,&#xd;
-      &quot;waitInStockNum&quot;: 1,&#xd;
-      &quot;unitId&quot;: &quot;string&quot;,&#xd;
-      &quot;unitName&quot;: &quot;string&quot;,&#xd;
-      &quot;priceNoTax&quot;: 0,&#xd;
-      &quot;priceInTax&quot;: 0,&#xd;
-      &quot;taxRate&quot;: 0,&#xd;
-      &quot;taxAmount&quot;: 0,&#xd;
-      &quot;isCodeSingle&quot;: true,&#xd;
-      &quot;id&quot;: &quot;CZID0000000001&quot;,&#xd;
-      &quot;relateType&quot;: 0&#xd;
-    }&#xd;
-  ]&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/waitinstocks</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-编辑（参数化）" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -522,7 +437,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
   &quot;supplierName&quot;: &quot;string&quot;,&#xd;
   &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
   &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
-  &quot;deliveryId&quot;: &quot;string222&quot;,&#xd;
+  &quot;deliveryId&quot;: &quot;string&quot;,&#xd;
   &quot;deliveryName&quot;: &quot;string&quot;,&#xd;
   &quot;deliveryTel&quot;: &quot;string&quot;,&#xd;
   &quot;deliveryNum&quot;: &quot;string&quot;,&#xd;
@@ -562,7 +477,33 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
       &quot;isCodeSingle&quot;: true,&#xd;
       &quot;id&quot;: &quot;${waitinstockid}&quot;,&#xd;
       &quot;relateType&quot;: 0&#xd;
-    }&#xd;
+    },&#xd;
+        {&#xd;
+      &quot;relateId&quot;: &quot;3123&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;waitInStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;id&quot;: &quot;${waitinstockid}&quot;,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    },&#xd;
   ]&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -582,10 +523,10 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="TestPlan.comments">前提条件：[1]数据库中100调数据[2]主表字表一一对应[3]审核态10</stringProp>
+          <stringProp name="TestPlan.comments">前提条件：[1]循环编辑100条数据</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-设置审核状态" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-设置审核状态" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -604,7 +545,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-设置单据状态" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-设置单据状态" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -623,7 +564,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-根据id获得单据" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-根据id获得单据" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -642,7 +583,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)精确-shipperid" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)精确-shipperid" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -662,7 +603,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="TestPlan.comments">预想使用shipperid查询</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)模糊-shipperid" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)模糊-shipperid" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -681,7 +622,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表数量精确" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表数量精确" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -700,7 +641,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表数量模糊" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表数量模糊" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -719,7 +660,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表分页信息(1,10)精确" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表分页信息(1,10)精确" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -738,7 +679,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表分页信息(1,10)模糊" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表分页信息(1,10)模糊" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -757,7 +698,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表数量精确" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表数量精确" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -776,7 +717,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表数量模糊" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得明细表数量精确" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -795,7 +736,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-根据relate获得单据信息" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-根据relate获得单据信息" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -804,25 +745,6 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/api/v1/waitinstockdetails/relate/list?relateId=1234</stringProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-测试接口" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/waitinstock/test</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -872,7 +794,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">

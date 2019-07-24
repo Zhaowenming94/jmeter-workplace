@@ -12,11 +12,11 @@
       <stringProp name="TestPlan.user_define_classpath">E:\jmeter\apache-jmeter-5.1.1\apache-jmeter-5.1.1\lib\ext\mysql-connector-java-8.0.15.jar</stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT环境" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT环境" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="authorization" elementType="Argument">
             <stringProp name="Argument.name">authorization</stringProp>
-            <stringProp name="Argument.value">curl -X GET &quot;http://waitinstock.pet.lunz.cn/api/v1/waitinstocks/21&quot; -H &quot;accept: application/json&quot; -H &quot;authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NjI1NTQ1NzQsImV4cCI6MTU2MjU4MzM3NCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1wZXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LXBldC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJlaG91c2UtbXAtY2xpZW50Iiwic3ViIjoiNzE1NDAwMDAtM2UxMy0wMDE2LWM0OTktMDhkNmY1MjIyYzU2IiwiYXV0aF90aW1lIjoxNTYyNTU0NTc0LCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiLku5PlgqjkuK3lj7DnrqHnkIblkZgiLCJ1c2VybmFtZSI6IndoYWRtaW4iLCJuYW1lIjoi5LuT5YKo5Lit5Y-w566h55CG5ZGYIiwib3JnYW5pemF0aW9uSWQiOiI3MWQ5YWQxNC05ZWE0LWU1MTEtODBkOS05OTQ0MjJkNDcyY2YiLCJvcmdhbml6YXRpb25OYW1lIjoi57O757uf5byA5Y-RIiwiZGVwYXJ0bWVudElkIjoiNzFkOWFkMTQtOWVhNC1lNTExLTgwZDktOTk0NDIyZDQ3MmNmIiwiZGVwYXJ0bWVudE5hbWUiOiLns7vnu5_lvIDlj5EiLCJhdXRoVG9rZW4iOiI2Yzc4YWFkOS1hZjA5LTQ0NWEtOTNlNi01NWFiZDI5NGE1ZjQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiI4ZTI0MDAwMC0zZTEyLTAwMTYtYmM0YS0wOGQ2MGVlNjU1MGY65a6i5oi356uv5L2_55So6ICFIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.aIwmXNlWa_eTUdMi9Enz8p5V2wAak6Cr2s1arL3LHP0DMxtrlwTffoDXB2hjkDLcLhP6lIbjs-RVEqBD6hb4mI4Iu1DJdYalObGh3E6PbChDiIgEnnJ7BxkBspHBE5Aqezq8w5bvGN63VcjIsEdNGum-9UeYtFKbd1NtHDvM7cN7M95Qbn7FZDVRYurHPMV7h5cccCqCWqLfQFwDiQQqprsdgNDHmJ6d5J1l6qMzeBVak9lLMJBoIPrY-M3p6WuEy_2vYRQjbE1XH4YGTo21cNrrfQ8JllzZKDKSYVmbVWOL7rekdeJD8Ce62bNHkc8A3snhYlNHi4JVCBZCZij-3w&quot;</stringProp>
+            <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NjI4MTMwNTEsImV4cCI6MTU2MjgxNjY1MSwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmhvdXNlLW1wLWludGVybmFsLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJob3VzZS1tcC1pbnRlcm5hbC1jbGllbnQiLCJzdWIiOiI3ZTMyODhlOC02NmJlLTRiOTAtYWE2NC1lYjkwZjRjMjc4OTYiLCJhdXRoX3RpbWUiOjE1NjI4MTMwNTAsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IuaVsOaNruS4reW_g-euoeeQhuWRmCIsInVzZXJuYW1lIjoiZGJhZG1pbiIsIm5hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJvcmdhbml6YXRpb25JZCI6ImU0OGU4ZDY4LTMxMGQtNDg0Mi1iYmRhLTk0NzlhYTFiZGM0NCIsIm9yZ2FuaXphdGlvbk5hbWUiOiLova7lrZDnp5HmioAiLCJkZXBhcnRtZW50SWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJkZXBhcnRtZW50TmFtZSI6Iui9ruWtkOenkeaKgCIsImF1dGhUb2tlbiI6IjYzZDJlZWYyLTJmMTgtNGE3OC05M2M0LTg5NDJlNmRlOTRlMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyI0ZjUwMDAwMC00YzRmLTAyMDAtYmI2Mi0wOGQ1YzFlOTRmNDE6Q1JN6LaF57qn566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTk1NTgtMDhkNWMyMWJlZjYyOkVIUuW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iYmJkLTA4ZDNkNTUyOTAyNTpGQ0PlnKjogYzlkZjlt6UiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYmRjMS0wOGQ2ZDM1OWZmY2M6RklO566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWVkMzItMDhkNWJjOTg4OThjOktGVOW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC01NzRlLTA4ZDYyMjkzZTIxMTrotKLliqEiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNmQ4NS0wOGQ2MjI5M2Q5YTY66YeH6LSt5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTA5NTItMDhkNjIyOTNjODk4OuS7k-WCqOmDqCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1hMDhjLTA4ZDYyMjkzZDczYTrku5PlupPnm5HnrqEiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZmIxZC0wOGQ2ODgxZDU5NWM65rWL6K-VIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTdjYjItMDhkNjM3ZjBkNjY0Oua1i-ivlea3u-WKoOinkuiJsiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1lNzZiLTA4ZDZlZjA2ZWNlYzrotoXnuqfnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNmZlNi0wOGQ2MTdiOTg2MjA66L2m5Yqh6YCa57O757uf566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWM3ZjYtMDhkNWI5N2IyMmNlOui9puWei-WFs-ezu-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC05NzM1LTA4ZDYyMjkzY2Y5Zjrkuoznuqfku5PotJ_otKPkuroiLCI0ZjUwMDAwMC00YzRmLTAyMDAtOGY5Ny0wOGQ2MDgwMzQ2Yzg6566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTdmMDQtMDhkNWJhZmU3MjEzOueuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1jNzY4LTA4ZDY3NTM2MTA3Yjrln7rnoYDkv6Hmga_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTU4OC0wOGQzMTBlOWNjY2E6566A5Y6G5oqV6YCSIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWY2NjktMDhkNjg4MWQ1MGRjOuW8gOWPkSIsIjVmYWMwMDAwLTNlMGEtMDAxNi02NGUxLTA4ZDZjZDQ0Nzg4MjrlvIDlj5Hop5LoibIiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMzI4Yi0wOGQ2MDNkZDhiZDE65a6i5oi356uv566h55CG6ICFIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZhMWEtMDhkNjAzZGQ5MWQyOuWuouaIt-err-S9v-eUqOiAhSIsIjVmYWMwMDAwLTNlMGEtMDAxNi0wMTk0LTA4ZDZlOGIzYmJiMDrlrqLmiLfotJ_otKPkuroiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYjlhMy0wOGQ0YmQ0MDRiYzg65a6i5oi36Zeo5bqXX2xjcm0iLCI1ZmFjMDAwMC0zZTBhLTAwMTYtNzk5Ny0wOGQ2ZThiM2MzOWE66Zeo5bqX6LSf6LSj5Lq6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWUzZDctMDhkNjAzZGQ4NDA4OuiupOivgeS4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1hNjA4LTA4ZDYyMjkzZGZmMjrorr7lpIfov73ouKoiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZTU1ZC0wOGQ2MjI5M2RjZjA655Sf5Lqn5LiT5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTE4MGYtMDhkNjIyOTNkNDI1OuWunuS9k-S7k-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC03MmQ0LTA4ZDVmMmQzOWVkZjrmlbDmja7kuK3lv4NSRC3nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNDA3ZC0wOGQ2MjRmYzdlNzU65pWw5o2u5Lit5b-D566h55CG5ZGYIiwiNzE3NWQwMDQtZTA5ZC00YmE5LThkZjAtNDRlNDQzZDIyN2EzOuaVsOaNruS4reW_g-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1iMmQzLTA4ZDY1NWE0ODkwYjrmlofnq6Dkv6Hmga_nrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtMjBhYi0wOGQ2NzdjNzcwYTc65ryU56S6IiwiNWZhYzAwMDAtM2UwYS0wMDE2LWU1Y2ItMDhkNjg4MWQ3NWUyOua8lOekuiIsIjRmNTAwMDAwLTRjNGYtMDIwMC04Yzc0LTA4ZDYyMjkzY2NhNjrkuIDnuqfku5PotJ_otKPkuroiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZGE3MS0wOGQ1YWJkODQzM2E65bqU55So6LaF57qn566h55CG5ZGYIiwiOTQ4M2ZlNGEtNWE4NS00NTU3LWJhYjktYjc0NzE4MWI1NjIzOueUqOaIt-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iMjU0LTA4ZDYyMjkzYzMxYzrov5Dnu7QiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZjI3Mi0wOGQ2MDNkZDg4YTI66LWE5rqQ5o-Q5L6b6ICFIl0sImx1bnotc2hhcnAtdGVtcGxhdGUiOiIxLTQiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwid2FyaG91c2UtbXAtaW50ZXJuYWwtYXBpIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.OWj_RCbpkV8waqCa4eazeCwJnyCwWuNJC58n7OTd_7em1c1SH5nSG_XiIb6ETcx5JSfjAVq5BxZ4H6eW5fx9Do7PfcQ4DHt2xIuxf1AAKlXN2jPpSHvb2mjpumE3_IDJNHXbkz-Bpwvfk1HNa3baIcjpQaio-TTZmmHa6OuYuXNB3sWFpj1JSzgrtqvX1uHmX4CGzN79hIadhUZsrOiE0pdsLhnbhUtRU349SluG26X-TlNwSm0_UKZs4nAqC1mIGX-lK5q7nvP_sKEenZGuKvuufbYRXV-fD_BSZDKRYN-PPlu4sxvcOYHv_8F65_2zSGsge2q3eb2jTRSBHydSJw</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="stockin" elementType="Argument">
@@ -91,7 +91,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="子溪本地环境" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="子溪本地环境" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="stockin" elementType="Argument">
             <stringProp name="Argument.name">stockin</stringProp>
@@ -165,28 +165,15 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC" enabled="true">
-        <boolProp name="autocommit">true</boolProp>
-        <stringProp name="checkQuery"></stringProp>
-        <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="dataSource">sql</stringProp>
-        <stringProp name="dbUrl">${DB-url}</stringProp>
-        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-        <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">${DB-password}</stringProp>
-        <stringProp name="poolMax">0</stringProp>
-        <stringProp name="timeout">10000</stringProp>
-        <stringProp name="transactionIsolation">DEFAULT</stringProp>
-        <stringProp name="trimInterval">60000</stringProp>
-        <stringProp name="username">${DB-user}</stringProp>
-        <stringProp name="initQuery"></stringProp>
-      </JDBCDataSource>
-      <hashTree/>
       <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="content-type" elementType="Header">
             <stringProp name="Header.name">content-type</stringProp>
             <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">${authorization}</stringProp>
           </elementProp>
         </collectionProp>
       </HeaderManager>
@@ -323,10 +310,10 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">200</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">20</stringProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.duration">30</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
@@ -420,7 +407,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-编辑（参数化）" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-编辑（参数化）" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -583,7 +570,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)精确-shipperid" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-获得主表分页信息(1,10)精确-shipperid" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -794,7 +781,7 @@ update sys_sequence set current_value = 1 where seq_no=&apos;CZIS&apos; or seq_n
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
           <value class="SampleSaveConfiguration">

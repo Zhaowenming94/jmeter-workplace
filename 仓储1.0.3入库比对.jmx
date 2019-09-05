@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="test" elementType="Argument">
+            <stringProp name="Argument.name">test</stringProp>
+            <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NjQzODgwMDMsImV4cCI6MTU2NDM5MTYwMywiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmhvdXNlLW1wLWludGVybmFsLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJob3VzZS1tcC1pbnRlcm5hbC1jbGllbnQiLCJzdWIiOiI3ZTMyODhlOC02NmJlLTRiOTAtYWE2NC1lYjkwZjRjMjc4OTYiLCJhdXRoX3RpbWUiOjE1NjQzODgwMDMsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IuaVsOaNruS4reW_g-euoeeQhuWRmCIsInVzZXJuYW1lIjoiZGJhZG1pbiIsIm5hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJvcmdhbml6YXRpb25JZCI6ImU0OGU4ZDY4LTMxMGQtNDg0Mi1iYmRhLTk0NzlhYTFiZGM0NCIsIm9yZ2FuaXphdGlvbk5hbWUiOiLova7lrZDnp5HmioAiLCJkZXBhcnRtZW50SWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJkZXBhcnRtZW50TmFtZSI6Iui9ruWtkOenkeaKgCIsImF1dGhUb2tlbiI6IjVlNTFjNGJiLTVkYTctNDdiOC05YWQ1LTkyNDY3YjAwZTkzNSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyI0ZjUwMDAwMC00YzRmLTAyMDAtYmI2Mi0wOGQ1YzFlOTRmNDE6Q1JN6LaF57qn566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTk1NTgtMDhkNWMyMWJlZjYyOkVIUuW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iYmJkLTA4ZDNkNTUyOTAyNTpGQ0PlnKjogYzlkZjlt6UiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYmRjMS0wOGQ2ZDM1OWZmY2M6RklO566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWVkMzItMDhkNWJjOTg4OThjOktGVOW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC0xMzQyLTA4ZDVjNmI4ZmVkODpWUFPlrqLmiLfkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNTc0ZS0wOGQ2MjI5M2UyMTE66LSi5YqhIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZkODUtMDhkNjIyOTNkOWE2OumHh-i0reWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC0wOTUyLTA4ZDYyMjkzYzg5ODrku5Plgqjpg6giLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTA4Yy0wOGQ2MjI5M2Q3M2E65LuT5bqT55uR566hIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWZiMWQtMDhkNjg4MWQ1OTVjOua1i-ivlSIsIjRmNTAwMDAwLTRjNGYtMDIwMC03Y2IyLTA4ZDYzN2YwZDY2NDrmtYvor5Xmt7vliqDop5LoibIiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZTc2Yi0wOGQ2ZWYwNmVjZWM66LaF57qn566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZmZTYtMDhkNjE3Yjk4NjIwOui9puWKoemAmuezu-e7n-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1jN2Y2LTA4ZDViOTdiMjJjZTrovablnovlhbPns7vkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtOTczNS0wOGQ2MjI5M2NmOWY65LqM57qn5LuT6LSf6LSj5Lq6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLThmOTctMDhkNjA4MDM0NmM4OueuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC03ZjA0LTA4ZDViYWZlNzIxMzrnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtYzc2OC0wOGQ2NzUzNjEwN2I65Z-656GA5L-h5oGv566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWE1ODgtMDhkMzEwZTljY2NhOueugOWOhuaKlemAkiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1mNjY5LTA4ZDY4ODFkNTBkYzrlvIDlj5EiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtNjRlMS0wOGQ2Y2Q0NDc4ODI65byA5Y-R6KeS6ImyIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTMyOGItMDhkNjAzZGQ4YmQxOuWuouaIt-err-euoeeQhuiAhSIsIjRmNTAwMDAwLTRjNGYtMDIwMC02YTFhLTA4ZDYwM2RkOTFkMjrlrqLmiLfnq6_kvb_nlKjogIUiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtMDE5NC0wOGQ2ZThiM2JiYjA65a6i5oi36LSf6LSj5Lq6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWI5YTMtMDhkNGJkNDA0YmM4OuWuouaIt-mXqOW6l19sY3JtIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTg0NDUtMDhkNGY2NzdlNzk3OuWuouaIt-S4reW_g-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi03OTk3LTA4ZDZlOGIzYzM5YTrpl6jlupfotJ_otKPkuroiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZTNkNy0wOGQ2MDNkZDg0MDg66K6k6K-B5Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWE2MDgtMDhkNjIyOTNkZmYyOuiuvuWkh-i_vei4qiIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lNTVkLTA4ZDYyMjkzZGNmMDrnlJ_kuqfkuJPlkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMTgwZi0wOGQ2MjI5M2Q0MjU65a6e5L2T5LuT566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTcyZDQtMDhkNWYyZDM5ZWRmOuaVsOaNruS4reW_g1JELeeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC00MDdkLTA4ZDYyNGZjN2U3NTrmlbDmja7kuK3lv4PnrqHnkIblkZgiLCI3MTc1ZDAwNC1lMDlkLTRiYTktOGRmMC00NGU0NDNkMjI3YTM65pWw5o2u5Lit5b-D566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWIyZDMtMDhkNjU1YTQ4OTBiOuaWh-eroOS_oeaBr-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi0yMGFiLTA4ZDY3N2M3NzBhNzrmvJTnpLoiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZTVjYi0wOGQ2ODgxZDc1ZTI65ryU56S6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLThjNzQtMDhkNjIyOTNjY2E2OuS4gOe6p-S7k-i0n-i0o-S6uiIsIjRmNTAwMDAwLTRjNGYtMDIwMC1kYTcxLTA4ZDVhYmQ4NDMzYTrlupTnlKjotoXnuqfnrqHnkIblkZgiLCI5NDgzZmU0YS01YTg1LTQ1NTctYmFiOS1iNzQ3MTgxYjU2MjM655So5oi35Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWIyNTQtMDhkNjIyOTNjMzFjOui_kOe7tCIsIjVmYWMwMDAwLTNlMGEtMDAxNi0wMzFjLTA4ZDZkODIwZWVlNDrlnKjogYzlkZjlt6UiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZjI3Mi0wOGQ2MDNkZDg4YTI66LWE5rqQ5o-Q5L6b6ICFIl0sImx1bnotc2hhcnAtdGVtcGxhdGUiOiIxLTQiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwid2FyaG91c2UtbXAtaW50ZXJuYWwtYXBpIiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.XqD2eKKIn5wWobLlKyDDgB4-0uy88vKbLFHMYIhUhlowSyhOaXnaS2uEIhw8qZiJvQlY-JbHyLLCCBeLvjYuW8h3Tv-HtBRbw233Wo4KvC4c7COPf2bcXnZVArBM48FDM1MwVL6I6UGNbgn7YofWBrZ36RKNmF1l8sMteQGR-G7ObCDLMT24aDgd3TFUbLXtG3G7ubMTwdRo8jwtPst8Sysv8ZScJkjZzlI3_Qt2LyYax1HKVFTHeM8FOFHgAx96Yj9QYix5C-xEXNzUevBiYghPjRY7Dts6jVS9Zftu-Tya9qTaoc018VokEiq6dil4ASaxcG30BleuGjqGl1BShQ</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="erp" elementType="Argument">
+            <stringProp name="Argument.name">erp</stringProp>
+            <stringProp name="Argument.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NjQzODc5MzgsImV4cCI6MTU2NDQxNjczOCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSJdLCJjbGllbnRfaWQiOiJ3YXJlaG91c2UtbXAtY2xpZW50Iiwic3ViIjoiN2UzMjg4ZTgtNjZiZS00YjkwLWFhNjQtZWI5MGY0YzI3ODk2IiwiYXV0aF90aW1lIjoxNTY0Mzg3OTM4LCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJ1c2VybmFtZSI6ImRiYWRtaW4iLCJuYW1lIjoi5pWw5o2u5Lit5b-D566h55CG5ZGYIiwib3JnYW5pemF0aW9uSWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJvcmdhbml6YXRpb25OYW1lIjoi6L2u5a2Q56eR5oqAIiwiZGVwYXJ0bWVudElkIjoiZTQ4ZThkNjgtMzEwZC00ODQyLWJiZGEtOTQ3OWFhMWJkYzQ0IiwiZGVwYXJ0bWVudE5hbWUiOiLova7lrZDnp5HmioAiLCJhdXRoVG9rZW4iOiIxNGJjNzNlNS0wNDVmLTQ5ZmEtOGMwNS1hMzJkOGZjNjYxNmEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiNGY1MDAwMDAtNGM0Zi0wMjAwLWJiNjItMDhkNWMxZTk0ZjQxOkNSTei2hee6p-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC05NTU4LTA4ZDVjMjFiZWY2MjpFSFLlupTnlKjnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYmJiZC0wOGQzZDU1MjkwMjU6RkND5Zyo6IGM5ZGY5belIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWJkYzEtMDhkNmQzNTlmZmNjOkZJTueuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lZDMyLTA4ZDViYzk4ODk4YzpLRlTlupTnlKjnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMTM0Mi0wOGQ1YzZiOGZlZDg6VlBT5a6i5oi35Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTU3NGUtMDhkNjIyOTNlMjExOui0ouWKoSIsIjRmNTAwMDAwLTRjNGYtMDIwMC02ZDg1LTA4ZDYyMjkzZDlhNjrph4fotK3lkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMDk1Mi0wOGQ2MjI5M2M4OTg65LuT5YKo6YOoIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWEwOGMtMDhkNjIyOTNkNzNhOuS7k-W6k-ebkeeuoSIsIjVmYWMwMDAwLTNlMGEtMDAxNi1mYjFkLTA4ZDY4ODFkNTk1YzrmtYvor5UiLCI0ZjUwMDAwMC00YzRmLTAyMDAtN2NiMi0wOGQ2MzdmMGQ2NjQ65rWL6K-V5re75Yqg6KeS6ImyIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWU3NmItMDhkNmVmMDZlY2VjOui2hee6p-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC02ZmU2LTA4ZDYxN2I5ODYyMDrovabliqHpgJrns7vnu5_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYzdmNi0wOGQ1Yjk3YjIyY2U66L2m5Z6L5YWz57O75Lit5b-D566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTk3MzUtMDhkNjIyOTNjZjlmOuS6jOe6p-S7k-i0n-i0o-S6uiIsIjRmNTAwMDAwLTRjNGYtMDIwMC04Zjk3LTA4ZDYwODAzNDZjODrnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtN2YwNC0wOGQ1YmFmZTcyMTM6566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWM3NjgtMDhkNjc1MzYxMDdiOuWfuuehgOS_oeaBr-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1hNTg4LTA4ZDMxMGU5Y2NjYTrnroDljobmipXpgJIiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZjY2OS0wOGQ2ODgxZDUwZGM65byA5Y-RIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTY0ZTEtMDhkNmNkNDQ3ODgyOuW8gOWPkeinkuiJsiIsIjRmNTAwMDAwLTRjNGYtMDIwMC0zMjhiLTA4ZDYwM2RkOGJkMTrlrqLmiLfnq6_nrqHnkIbogIUiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNmExYS0wOGQ2MDNkZDkxZDI65a6i5oi356uv5L2_55So6ICFIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTAxOTQtMDhkNmU4YjNiYmIwOuWuouaIt-i0n-i0o-S6uiIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iOWEzLTA4ZDRiZDQwNGJjODrlrqLmiLfpl6jlupdfbGNybSIsIjRmNTAwMDAwLTRjNGYtMDIwMC04NDQ1LTA4ZDRmNjc3ZTc5NzrlrqLmiLfkuK3lv4PnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtNzk5Ny0wOGQ2ZThiM2MzOWE66Zeo5bqX6LSf6LSj5Lq6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWUzZDctMDhkNjAzZGQ4NDA4OuiupOivgeS4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1hNjA4LTA4ZDYyMjkzZGZmMjrorr7lpIfov73ouKoiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZTU1ZC0wOGQ2MjI5M2RjZjA655Sf5Lqn5LiT5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTE4MGYtMDhkNjIyOTNkNDI1OuWunuS9k-S7k-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC03MmQ0LTA4ZDVmMmQzOWVkZjrmlbDmja7kuK3lv4NSRC3nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNDA3ZC0wOGQ2MjRmYzdlNzU65pWw5o2u5Lit5b-D566h55CG5ZGYIiwiNzE3NWQwMDQtZTA5ZC00YmE5LThkZjAtNDRlNDQzZDIyN2EzOuaVsOaNruS4reW_g-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1iMmQzLTA4ZDY1NWE0ODkwYjrmlofnq6Dkv6Hmga_nrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtMjBhYi0wOGQ2NzdjNzcwYTc65ryU56S6IiwiNWZhYzAwMDAtM2UwYS0wMDE2LWU1Y2ItMDhkNjg4MWQ3NWUyOua8lOekuiIsIjRmNTAwMDAwLTRjNGYtMDIwMC04Yzc0LTA4ZDYyMjkzY2NhNjrkuIDnuqfku5PotJ_otKPkuroiLCI0ZjUwMDAwMC00YzRmLTAyMDAtZGE3MS0wOGQ1YWJkODQzM2E65bqU55So6LaF57qn566h55CG5ZGYIiwiOTQ4M2ZlNGEtNWE4NS00NTU3LWJhYjktYjc0NzE4MWI1NjIzOueUqOaIt-S4reW_g-euoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC1iMjU0LTA4ZDYyMjkzYzMxYzrov5Dnu7QiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtMDMxYy0wOGQ2ZDgyMGVlZTQ65Zyo6IGM5ZGY5belIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWYyNzItMDhkNjAzZGQ4OGEyOui1hOa6kOaPkOS-m-iAhSJdLCJsdW56LXNoYXJwLXRlbXBsYXRlIjoiMS00Iiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsIndhcmVob3VzZS1tcC1iYXNpYy1hcGkiLCJ3YXJlaG91c2UtbXAtbWFzdGVyLWFwaSIsIndhcmVob3VzZS1tcC1ydWxlLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2NoZWNrLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2luLWFwaSIsIndhcmVob3VzZS1tcC1zdG9ja2lucGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tvdXQtYXBpIiwid2FyZWhvdXNlLW1wLXN0b2Nrb3V0cGVuZC1hcGkiLCJ3YXJlaG91c2UtbXAtc3RvY2tzdGF0aXN0aWNzLWFwaSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.gUnzBNE9JA2YqACdleFJocQO3nJ4FieHqKXN52Q7i-479fSiWeZbhW29iSoko2dKxzMBy6sMtinEUUxbSKPf2MF2AeYaMyL7RPbNHkvCSjsaJl-jgOCI8iQ44wmu7vDmPpbh415Ke1e_LoiNORh6zXohJkmujGUxMO4m6iVG2tvFka3ZIpEVlFxLdqZeKGlLmmwWRVgsXAwxg5M3cPkgaY2OBo56n91cxEAwTWjfSERVJBRaxxIQgasG5VVjo36QJXScBice3EZ2lc_qmHrys_6v5RzcAj2skcSYuxGPln1agmcqIPc_b4X-slVe6n_OcSxUu-89Fw1Oyhvq5nPAOg</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="judge" elementType="Argument">
+            <stringProp name="Argument.name">judge</stringProp>
+            <stringProp name="Argument.value">m</stringProp>
+            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="relateid" elementType="Argument">
+            <stringProp name="Argument.name">relateid</stringProp>
+            <stringProp name="Argument.value">${__Random(000000001,999999999,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com:3306/warehousemiddle_test</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">user_warehouse</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">Lunz2017</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">instock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">outstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">checkstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">stock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">waitinstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">waitoutstock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">delivery.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="movestock" elementType="Argument">
+            <stringProp name="Argument.name">movestock</stringProp>
+            <stringProp name="Argument.value">movestock.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">移库-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="allocations" elementType="Argument">
+            <stringProp name="Argument.name">allocations</stringProp>
+            <stringProp name="Argument.value">allocation.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调拨-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_id" elementType="Argument">
+            <stringProp name="Argument.name">client_id</stringProp>
+            <stringProp name="Argument.value">warhouse-mp-internal-client</stringProp>
+            <stringProp name="Argument.desc">认证（1.0.3）</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_secret" elementType="Argument">
+            <stringProp name="Argument.name">client_secret</stringProp>
+            <stringProp name="Argument.value">NrAnpOFTNaKbAJ20FG9gcN7IlkXqt7iq</stringProp>
+            <stringProp name="Argument.desc">认证（1.0.3）</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Auth-URL" elementType="Argument">
+            <stringProp name="Argument.name">Auth-URL</stringProp>
+            <stringProp name="Argument.value">http://identity-fat.lunz.cn/connect/token</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">认证（1.0.3）</stringProp>
+          </elementProp>
+          <elementProp name="username" elementType="Argument">
+            <stringProp name="Argument.name">username</stringProp>
+            <stringProp name="Argument.value">dbadmin</stringProp>
+            <stringProp name="Argument.desc">认证（1.0.3）</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">123456</stringProp>
+            <stringProp name="Argument.desc">认证（1.0.3）</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain"></stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TEST" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库-新建入库单" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;测试库&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;auditStatus&quot;: 0,&#xd;
+  &quot;status&quot;: 0,&#xd;
+  &quot;inStockType&quot;: 0,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdByName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+  &quot;fromId&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;fromName&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;inStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;${relateid}&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;string&quot;,&#xd;
+      &quot;guNumber&quot;: &quot;string&quot;,&#xd;
+      &quot;produceTime&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+      &quot;expirationTime&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+      &quot;storeSpaceId&quot;: &quot;11234&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;inStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${stockin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/instocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${test}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库-获得主表列表数量" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${stockin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/instocks/count?filter.rules[0].field=shipperName&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=测试库</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${test}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="云ERP入库-新建入库单" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;云ERP-测试库&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;auditStatus&quot;: 0,&#xd;
+  &quot;status&quot;: 0,&#xd;
+  &quot;inStockType&quot;: 0,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdByName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+  &quot;fromId&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;fromName&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;inStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;${relateid}&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;string&quot;,&#xd;
+      &quot;guNumber&quot;: &quot;string&quot;,&#xd;
+      &quot;produceTime&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+      &quot;expirationTime&quot;: &quot;2019-05-06T06:23:56.479Z&quot;,&#xd;
+      &quot;storeSpaceId&quot;: &quot;22345&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;inStockNum&quot;: 1,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${stockin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/instocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${erp}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="云ERP入库-获得主表列表数量" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${stockin}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/instocks/count?filter.rules[0].field=shipperName&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=云ERP-测试库</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${erp}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>true</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="仓储1.0.4性能测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">authorization</stringProp>
+              <stringProp name="Header.value"></stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询库存paging" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stock.fat.lunz.cn</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/stocks/paging?filter.rules[0].data=111&amp;filter.rules[0].field=cargoesname&amp;sort[0].sort=desc&amp;sort[0].field=id&amp;gradesType=10&amp;filter.rules[1].field=warehouseId&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=222&amp;filter.rules[2].field=shipperid&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=333&amp;filter.rules[0].op=eq</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">三个查询条件：仓库、货主、货物名称
+一个聚合：batchno
+包含0库存
+
+
+</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询库存count" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stock.fat.lunz.cn</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/stocks/count?filter.rules[0].data=111&amp;filter.rules[0].field=cargoesname&amp;sort[0].sort=desc&amp;sort[0].field=id&amp;gradesType=10&amp;filter.rules[1].field=warehouseId&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=222&amp;filter.rules[2].field=shipperid&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=333&amp;filter.rules[0].op=eq</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">三个查询条件：仓库、货主、货物名称
+一个聚合：batchno
+包含0库存
+
+
+</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="计算库存预警信息" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stock.fat.lunz.cn</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/warnings/stock/calculate</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">前提：创建预警策略（只写货物id怎么保证货物体量，该货物在数据库对应条数？？业务来说多少合适）</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获得可用库存数（涉及锁和关联单）" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stock.fat.lunz.cn</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/stocks/availablenum?shipperId=111&amp;cargoesId=222&amp;relateId=333&amp;relateItemId=444</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">前提：该库存加了两个业务锁且维护了锁和单据关联关</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新建入库单（最后测）" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;code&quot;: &quot;性能测试0923&quot;,&#xd;
+  &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+  &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierId&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierName&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierContact&quot;: &quot;string&quot;,&#xd;
+  &quot;supplierTel&quot;: &quot;string&quot;,&#xd;
+  &quot;remarks&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedById&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedByName&quot;: &quot;string&quot;,&#xd;
+  &quot;publishedAt&quot;: &quot;2019-09-23T02:46:05.181Z&quot;,&#xd;
+  &quot;totalnoTax&quot;: 0,&#xd;
+  &quot;totalInTax&quot;: 0,&#xd;
+  &quot;totalTax&quot;: 0,&#xd;
+  &quot;auditStatus&quot;: 0,&#xd;
+  &quot;status&quot;: 0,&#xd;
+  &quot;inStockType&quot;: 0,&#xd;
+  &quot;fromId&quot;: &quot;string&quot;,&#xd;
+  &quot;fromName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdByName&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-09-23T02:46:05.181Z&quot;,&#xd;
+  &quot;inStockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;string&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;string&quot;,&#xd;
+      &quot;guNumber&quot;: &quot;string&quot;,&#xd;
+      &quot;produceTime&quot;: &quot;2019-09-23T02:46:05.181Z&quot;,&#xd;
+      &quot;expirationTime&quot;: &quot;2019-09-23T02:46:05.181Z&quot;,&#xd;
+      &quot;storeSpaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;specId&quot;: &quot;string&quot;,&#xd;
+      &quot;specName&quot;: &quot;string&quot;,&#xd;
+      &quot;inStockNum&quot;: 0,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">instock.fat.lunz.cn</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/instocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">跨微服务，填写storespaceid（需不需要设置为变量参数？？）</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新建库存（最后测）" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;stockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;batchNo&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;${__Random(0000000,9999999,cargoesid)}&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;string&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;string&quot;,&#xd;
+      &quot;shipperId&quot;: &quot;string&quot;,&#xd;
+      &quot;shipperName&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;string&quot;,&#xd;
+      &quot;produceTime&quot;: &quot;2019-09-23T02:39:22.031Z&quot;,&#xd;
+      &quot;expirationTime&quot;: &quot;2019-09-23T02:39:22.031Z&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;string&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;unitId&quot;: &quot;string&quot;,&#xd;
+      &quot;unitName&quot;: &quot;string&quot;,&#xd;
+      &quot;stockNum&quot;: 0,&#xd;
+      &quot;createdById&quot;: &quot;string&quot;,&#xd;
+      &quot;createdAt&quot;: &quot;2019-09-23T02:39:22.031Z&quot;,&#xd;
+      &quot;updatedById&quot;: &quot;string&quot;,&#xd;
+      &quot;updatedAt&quot;: &quot;2019-09-23T02:39:22.031Z&quot;,&#xd;
+      &quot;isCodeSingle&quot;: true,&#xd;
+      &quot;guNumber&quot;: &quot;string&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stock.fat.lunz.cn</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/stocks</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

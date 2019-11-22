@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments">20190815规范：
+（1）每个sqmple请求命名，发生改变后命名后+（版本）区分，例如：新建入库单（1.0.1）（1.0.2）
+（2）对于断言等，每一个断言加注释说明哪个版本添加以及断言内容
+
+
+
+
+</stringProp>
+      <boolProp name="TestPlan.functional_mode">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT-网关" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="judge" elementType="Argument">
+            <stringProp name="Argument.name">judge</stringProp>
+            <stringProp name="Argument.value">m</stringProp>
+            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="relateid" elementType="Argument">
+            <stringProp name="Argument.name">relateid</stringProp>
+            <stringProp name="Argument.value">${__Random(000000001,999999999,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com:3306/whmp_fat?allowMultiQueries=true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">user_warehouse</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">Lunz2017</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="movestock" elementType="Argument">
+            <stringProp name="Argument.name">movestock</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">移库-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="allocations" elementType="Argument">
+            <stringProp name="Argument.name">allocations</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调拨-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="itemrelate" elementType="Argument">
+            <stringProp name="Argument.name">itemrelate</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">组装拆分</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="statistics" elementType="Argument">
+            <stringProp name="Argument.name">statistics</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">调度任务</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT-网关" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="judge" elementType="Argument">
+            <stringProp name="Argument.name">judge</stringProp>
+            <stringProp name="Argument.value">m</stringProp>
+            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="relateid" elementType="Argument">
+            <stringProp name="Argument.name">relateid</stringProp>
+            <stringProp name="Argument.value">${__Random(000000001,999999999,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://rm-bp1oydriw2vi7fc68qo.mysql.rds.aliyuncs.com:3306/whmp_uat?allowMultiQueries=true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">user_whmp</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">Lunz2017</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="movestock" elementType="Argument">
+            <stringProp name="Argument.name">movestock</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">移库-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="allocations" elementType="Argument">
+            <stringProp name="Argument.name">allocations</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调拨-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="itemrelate" elementType="Argument">
+            <stringProp name="Argument.name">itemrelate</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">组装拆分</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="statistics" elementType="Argument">
+            <stringProp name="Argument.name">statistics</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.uat.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调度任务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="PRE-共享数据库[whmp_pre]" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="judge" elementType="Argument">
+            <stringProp name="Argument.name">judge</stringProp>
+            <stringProp name="Argument.value">m</stringProp>
+            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="relateid" elementType="Argument">
+            <stringProp name="Argument.name">relateid</stringProp>
+            <stringProp name="Argument.value">${__Random(000000001,999999999,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://rm-bp1lun0fi3cn2d20z2o.mysql.rds.aliyuncs.com:3306/whmp_pre?allowMultiQueries=true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">user_whmp</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">Yjt*ewJ7</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="movestock" elementType="Argument">
+            <stringProp name="Argument.name">movestock</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">移库-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="allocations" elementType="Argument">
+            <stringProp name="Argument.name">allocations</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调拨-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="itemrelate" elementType="Argument">
+            <stringProp name="Argument.name">itemrelate</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">组装拆分</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="statistics" elementType="Argument">
+            <stringProp name="Argument.name">statistics</stringProp>
+            <stringProp name="Argument.value">ware-internal-api.pre.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调度任务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="正式-共享数据库网关[whmp_pro]" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="judge" elementType="Argument">
+            <stringProp name="Argument.name">judge</stringProp>
+            <stringProp name="Argument.value">m</stringProp>
+            <stringProp name="Argument.desc">是否执行异常状态码情况 Y/N </stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="relateid" elementType="Argument">
+            <stringProp name="Argument.name">relateid</stringProp>
+            <stringProp name="Argument.value">${__Random(000000001,999999999,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-url" elementType="Argument">
+            <stringProp name="Argument.name">DB-url</stringProp>
+            <stringProp name="Argument.value">jdbc:mysql://rm-bp1lun0fi3cn2d20z2o.mysql.rds.aliyuncs.com:3306/whmp_pro?allowMultiQueries=true</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-user" elementType="Argument">
+            <stringProp name="Argument.name">DB-user</stringProp>
+            <stringProp name="Argument.value">user_whmp</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DB-password" elementType="Argument">
+            <stringProp name="Argument.name">DB-password</stringProp>
+            <stringProp name="Argument.value">Yjt*ewJ7</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockin" elementType="Argument">
+            <stringProp name="Argument.name">stockin</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockout" elementType="Argument">
+            <stringProp name="Argument.name">stockout</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basic" elementType="Argument">
+            <stringProp name="Argument.name">basic</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">基础</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stockcheck" elementType="Argument">
+            <stringProp name="Argument.name">stockcheck</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">盘点</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="stock" elementType="Argument">
+            <stringProp name="Argument.name">stock</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">库存</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendin" elementType="Argument">
+            <stringProp name="Argument.name">pendin</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待入库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pendout" elementType="Argument">
+            <stringProp name="Argument.name">pendout</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">待出库</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delivery" elementType="Argument">
+            <stringProp name="Argument.name">delivery</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">确认发货</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="movestock" elementType="Argument">
+            <stringProp name="Argument.name">movestock</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">移库-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="allocations" elementType="Argument">
+            <stringProp name="Argument.name">allocations</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调拨-1.0.3拆分微服务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="itemrelate" elementType="Argument">
+            <stringProp name="Argument.name">itemrelate</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">组装拆分</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="statistics" elementType="Argument">
+            <stringProp name="Argument.name">statistics</stringProp>
+            <stringProp name="Argument.value">ware-api.lunz.cn</stringProp>
+            <stringProp name="Argument.desc">调度任务</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="utf-8" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain"></stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="FAT" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+          <stringProp name="dataSource">sql</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">/*各个服务*/
+SELECT MAX(id) as a1 FROM tb_instockinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a2 FROM tb_outstockinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a3 FROM tb_waitinstockinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a4 FROM tb_waitoutstockinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a5 FROM tb_deliveryinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a6 FROM tb_warningconfig WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a7 FROM tb_checkjob WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a8 FROM tb_movestockinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a9 FROM basic_warehouseinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a10 FROM tb_allocationinfo WHERE Deleted =&apos;0&apos;;
+SELECT MAX(id) as a11 FROM tb_splitsource WHERE Deleted =&apos;0&apos;;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames">a111</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">sql</stringProp>
+          <stringProp name="dbUrl">${DB-url}</stringProp>
+          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">${DB-password}</stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">${DB-user}</stringProp>
+          <stringProp name="initQuery"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

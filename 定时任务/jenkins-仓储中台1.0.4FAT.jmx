@@ -18,7 +18,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT-网关" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT-网关" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="judge" elementType="Argument">
             <stringProp name="Argument.name">judge</stringProp>
@@ -151,7 +151,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT-网关" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT-网关" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="judge" elementType="Argument">
             <stringProp name="Argument.name">judge</stringProp>
@@ -733,7 +733,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="V1.0.4" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="脚本" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -746,19 +746,6 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器-【自动认证】" enabled="true">
-          <collectionProp name="HeaderManager.headers">
-            <elementProp name="content-type" elementType="Header">
-              <stringProp name="Header.name">content-type</stringProp>
-              <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="Authorization" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer ${__P(authorization1,)}</stringProp>
-            </elementProp>
-          </collectionProp>
-        </HeaderManager>
-        <hashTree/>
         <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC" enabled="true">
           <boolProp name="autocommit">true</boolProp>
           <stringProp name="checkQuery"></stringProp>
@@ -775,6 +762,19 @@
           <stringProp name="username">${DB-user}</stringProp>
           <stringProp name="initQuery"></stringProp>
         </JDBCDataSource>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器-【自动认证】" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="content-type" elementType="Header">
+              <stringProp name="Header.name">content-type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="Authorization" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${__P(authorization1,)}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="DB-测试对接正确" enabled="true">
           <stringProp name="TestPlan.comments">【！！！！！检查连库正确前提！！！！！】
@@ -1156,9 +1156,9 @@ SELECT MAX(id) as a11 FROM tb_splitsource WHERE Deleted =&apos;0&apos;;</stringP
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="统计结余（1.0.4）" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.4】统计结余" enabled="true"/>
         <hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-数据库清空表" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-数据库清空表和一条1.0.4带extenddata的库存数据" enabled="true">
             <stringProp name="dataSource">sql</stringProp>
             <stringProp name="queryType">Callable Statement</stringProp>
             <stringProp name="query">TRUNCATE tb_waitoutstockinfo;
@@ -1176,6 +1176,9 @@ TRUNCATE statistic_stocksurplus_detail;
 TRUNCATE statistic_stocksurplus_info;
 TRUNCATE statistic_rule;
 TRUNCATE sys_timejob;
+DELETE from tb_stockmanagement where id=&apos;1&apos;;
+DELETE FROM `tb_stockmanagement` where ShipperId=&apos;测试统计结余&apos;
+
 
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
@@ -1238,6 +1241,13 @@ INSERT INTO `tb_waitinstockinfo`(`Id`, `Code`, `AuditStatus`, `Status`, `WaitInS
 INSERT INTO `tb_waitinstockinfo`(`Id`, `Code`, `AuditStatus`, `Status`, `WaitInStockType`, `FromId`, `FromName`, `ShipperId`, `ShipperName`, `SupplierId`, `SupplierName`, `SupplierContact`, `SupplierTel`, `DeliveryId`, `DeliveryName`, `DeliveryTel`, `DeliveryNum`, `Remarks`, `PublishedById`, `PublishedByName`, `PublishedAt`, `TotalnoTax`, `TotalInTax`, `TotalTax`, `CreatedById`, `CreatedByName`, `CreatedAt`, `UpdatedById`, `UpdatedByName`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;3&apos;, &apos;string&apos;, 0, 0, 0, &apos;string&apos;, &apos;string&apos;, &apos;上月统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;2019-09-29 08:31:09&apos;, 0.0000, 0.0000, 0.000, &apos;string&apos;, &apos;string&apos;, date_sub(now(),interval 1 month), NULL, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `tb_waitinstockinfo`(`Id`, `Code`, `AuditStatus`, `Status`, `WaitInStockType`, `FromId`, `FromName`, `ShipperId`, `ShipperName`, `SupplierId`, `SupplierName`, `SupplierContact`, `SupplierTel`, `DeliveryId`, `DeliveryName`, `DeliveryTel`, `DeliveryNum`, `Remarks`, `PublishedById`, `PublishedByName`, `PublishedAt`, `TotalnoTax`, `TotalInTax`, `TotalTax`, `CreatedById`, `CreatedByName`, `CreatedAt`, `UpdatedById`, `UpdatedByName`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;4&apos;, &apos;string&apos;, 0, 0, 0, &apos;string&apos;, &apos;string&apos;, &apos;上年统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;2018-10-29 08:31:09&apos;, 0.0000, 0.0000, 0.000, &apos;string&apos;, &apos;string&apos;, date_sub(now(),interval 1 year), NULL, NULL, NULL, NULL, NULL, 0);
 
+/*1.0.4新增需求添加extenddata*/
+INSERT INTO `tb_stockmanagement`(`Id`, `BatchNo`, `CargoesId`, `CargoesCode`, `CargoesName`, `ShipperId`, `ShipperName`, `BatchNoOriginal`, `ProduceTime`, `ExpirationTime`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `StorespaceId`, `StorespaceName`, `StorespaceCode`, `IsCodeSingle`, `UnitId`, `UnitName`, `StockNum`, `InitialTime`, `PriceNoTax`, `PriceInTax`, `ExtendData`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;1&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;测试统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;2019-11-28 08:28:54&apos;, &apos;2019-11-28 08:28:54&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, 0, &apos;string&apos;, &apos;string&apos;, 1, &apos;1900-01-01 00:00:00&apos;, 0.00000000, 0.00000000, &apos;{\&quot;11\&quot;: \&quot;测试返回extenddata\&quot;}&apos;, &apos;string&apos;, &apos;2019-11-28 08:28:54&apos;, &apos;string&apos;, &apos;2019-11-28 08:28:54&apos;, NULL, NULL, 0);
+
+
+
+
+
 /*待入库detail*/
 INSERT INTO `tb_waitinstockdetail`(`Id`, `WaitInStockId`, `WaitInStockCode`, `WaitInStockType`, `RelateId`, `RelateType`, `RelateCode`, `RelateItemId`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesName`, `CargoesCode`, `FromWarehouseId`, `FromWarehouseCode`, `FromWarehouseName`, `StorespaceId`, `StorespaceCode`, `StorespaceName`, `SpecId`, `SpecName`, `WaitInStockNum`, `UnitId`, `UnitName`, `PriceNoTax`, `PriceInTax`, `TaxRate`, `TaxAmount`, `IsCodeSingle`, `ExtendData`, `CreatedById`, `CreatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;1&apos;, &apos;1&apos;, &apos;string&apos;, 0, &apos;string&apos;, 0, &apos;string&apos;, &apos;string&apos;, &apos;昨日统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, 100, &apos;string&apos;, &apos;string&apos;, 100.00000000, 100.00000000, 0.00, 0.0000, 0, NULL, &apos;string&apos;, date_sub(now(),interval 1 day), NULL, NULL, 0);
 INSERT INTO `tb_waitinstockdetail`(`Id`, `WaitInStockId`, `WaitInStockCode`, `WaitInStockType`, `RelateId`, `RelateType`, `RelateCode`, `RelateItemId`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesName`, `CargoesCode`, `FromWarehouseId`, `FromWarehouseCode`, `FromWarehouseName`, `StorespaceId`, `StorespaceCode`, `StorespaceName`, `SpecId`, `SpecName`, `WaitInStockNum`, `UnitId`, `UnitName`, `PriceNoTax`, `PriceInTax`, `TaxRate`, `TaxAmount`, `IsCodeSingle`, `ExtendData`, `CreatedById`, `CreatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;2&apos;, &apos;2&apos;, &apos;string&apos;, 0, &apos;string&apos;, 0, &apos;string&apos;, &apos;string&apos;, &apos;上周统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, 100, &apos;string&apos;, &apos;string&apos;, 100.00000000, 100.00000000, 0.00, 0.0000, 0, NULL, &apos;string&apos;,  date_sub(now(),interval 7 day), NULL, NULL, 0);
@@ -1245,13 +1255,17 @@ INSERT INTO `tb_waitinstockdetail`(`Id`, `WaitInStockId`, `WaitInStockCode`, `Wa
 INSERT INTO `tb_waitinstockdetail`(`Id`, `WaitInStockId`, `WaitInStockCode`, `WaitInStockType`, `RelateId`, `RelateType`, `RelateCode`, `RelateItemId`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesName`, `CargoesCode`, `FromWarehouseId`, `FromWarehouseCode`, `FromWarehouseName`, `StorespaceId`, `StorespaceCode`, `StorespaceName`, `SpecId`, `SpecName`, `WaitInStockNum`, `UnitId`, `UnitName`, `PriceNoTax`, `PriceInTax`, `TaxRate`, `TaxAmount`, `IsCodeSingle`, `ExtendData`, `CreatedById`, `CreatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;4&apos;, &apos;4&apos;, &apos;string&apos;, 0, &apos;string&apos;, 0, &apos;string&apos;, &apos;string&apos;, &apos;上年统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, 100, &apos;string&apos;, &apos;string&apos;, 100.00000000, 100.00000000, 0.00, 0.0000, 0, NULL, &apos;string&apos;, date_sub(now(),interval 1 year), NULL, NULL, 0);
 
 /*昨日出入库流水*/
-INSERT INTO `tb_inoutstocklog`(`Id`, `RelateId`, `RelateType`, `RelateCode`, `RelateItemId`, `ShipperId`, `ShipperName`, `BatchNo`, `GuNumber`, `StorespaceId`, `StorespaceName`, `StorespaceCode`, `ToStorespaceId`, `ToStorespaceName`, `ToStorespaceCode`, `CargoesId`, `CargoesName`, `CargoesCode`, `UnitId`, `UnitName`, `Num`, `PriceNoTax`, `PriceInTax`, `TaxRate`, `TaxAmount`, `WarehouseId`, `WarehouseCode`, `WarehouseName`, `BatchNoOriginal`, `Remarks`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;CESHI111&apos;, &apos;string&apos;, 0, &apos;string&apos;, &apos;string&apos;, &apos;测试统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, 10, 10.00000000, 10.00000000, 0.00, 0.0000, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, date_sub(now(),interval 1 day), NULL, NULL, NULL, NULL, 0);
+INSERT INTO `tb_inoutstocklog`(`Id`, `RelateId`, `RelateType`, `RelateCode`, `RelateItemId`, `ShipperId`, `ShipperName`, `BatchNo`, `GuNumber`, `StorespaceId`, `StorespaceName`, `StorespaceCode`, `ToStorespaceId`, `ToStorespaceName`, `ToStorespaceCode`, `CargoesId`, `CargoesName`, `CargoesCode`, `UnitId`, `UnitName`, `Num`, `PriceNoTax`, `PriceInTax`, `TaxRate`, `TaxAmount`, `WarehouseId`, `WarehouseCode`, `WarehouseName`, `BatchNoOriginal`, `Remarks`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;CZII0000000029&apos;, &apos;string&apos;, 0, &apos;string&apos;, &apos;string&apos;, &apos;测试统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, 10, 10.00000000, 10.00000000, 0.00, 0.0000, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, date_sub(now(),interval 1 day), NULL, NULL, NULL, NULL, 0);
+
+
 
 /*周月年阶段统计*/
 INSERT INTO `statistic_stockstage`(`Id`, `DateTag`, `StartDate`, `EndDate`, `BillType`, `StatisticType`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `StageInStockNum`, `StageInStockCostInTax`, `StageInStockCostNoTax`, `StageOutStockNum`, `StageOutStockCostInTax`, `StageOutStockCostNoTax`, `StockTurnOverNum`, `StockTurnOverInValue`, `StockTurnOverNoValue`, `StockTurnOverNumDays`, `InTaxStockTurnOverValueDays`, `NoTaxStockTurnOverValueDays`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;1&apos;, &apos;2019-10-28&apos;, date_sub(CURRENT_DATE,interval 7 day),  (DATE_SUB(DATE_SUB(curdate(),INTERVAL 6 DAY),INTERVAL 1 second ) ), 0, 1, &apos;测试统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-10-29 08:43:17&apos;, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `statistic_stockstage`(`Id`, `DateTag`, `StartDate`, `EndDate`, `BillType`, `StatisticType`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `StageInStockNum`, `StageInStockCostInTax`, `StageInStockCostNoTax`, `StageOutStockNum`, `StageOutStockCostInTax`, `StageOutStockCostNoTax`, `StockTurnOverNum`, `StockTurnOverInValue`, `StockTurnOverNoValue`, `StockTurnOverNumDays`, `InTaxStockTurnOverValueDays`, `NoTaxStockTurnOverValueDays`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;2&apos;, &apos;2019-10-28&apos;, date_sub(CURRENT_DATE,interval 1 MONTH),  DATE_SUB(DATE_SUB(DATE_SUB(curdate(),INTERVAL -1 DAY),INTERVAL 1 second ),INTERVAL 1 month), 0, 1, &apos;测试统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-10-29 08:43:17&apos;, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `statistic_stockstage`(`Id`, `DateTag`, `StartDate`, `EndDate`, `BillType`, `StatisticType`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `StageInStockNum`, `StageInStockCostInTax`, `StageInStockCostNoTax`, `StageOutStockNum`, `StageOutStockCostInTax`, `StageOutStockCostNoTax`, `StockTurnOverNum`, `StockTurnOverInValue`, `StockTurnOverNoValue`, `StockTurnOverNumDays`, `InTaxStockTurnOverValueDays`, `NoTaxStockTurnOverValueDays`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;3&apos;, &apos;2019-10-28&apos;, date_sub(CURRENT_DATE,interval 1 year),  DATE_SUB(DATE_SUB(DATE_SUB(curdate(),INTERVAL -1 DAY),INTERVAL 1 second ),INTERVAL 1 year), 0, 1, &apos;测试统计结余&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-10-29 08:43:17&apos;, NULL, NULL, NULL, NULL, 0);
-
+INSERT INTO `statistic_stockstage`(`Id`, `DateTag`, `StartDate`, `EndDate`, `BillType`, `StatisticType`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `StageInStockNum`, `StageInStockCostInTax`, `StageInStockCostNoTax`, `StageOutStockNum`, `StageOutStockCostInTax`, `StageOutStockCostNoTax`, `StockTurnOverNum`, `StockTurnOverInValue`, `StockTurnOverNoValue`, `StockTurnOverNumDays`, `InTaxStockTurnOverValueDays`, `NoTaxStockTurnOverValueDays`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;4&apos;, &apos;2019-10-28&apos;, date_sub(CURRENT_DATE,interval 1 day),  DATE_SUB(DATE_SUB(DATE_SUB(curdate(),INTERVAL -1 DAY),INTERVAL 1 second ),INTERVAL 1 day), 0, 1, &apos;测试统计结余1&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-10-29 08:43:17&apos;, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `statistic_stockstage`(`Id`, `DateTag`, `StartDate`, `EndDate`, `BillType`, `StatisticType`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `StageInStockNum`, `StageInStockCostInTax`, `StageInStockCostNoTax`, `StageOutStockNum`, `StageOutStockCostInTax`, `StageOutStockCostNoTax`, `StockTurnOverNum`, `StockTurnOverInValue`, `StockTurnOverNoValue`, `StockTurnOverNumDays`, `InTaxStockTurnOverValueDays`, `NoTaxStockTurnOverValueDays`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;5&apos;, &apos;2019-10-28&apos;, date_sub(CURRENT_DATE,interval 1 day),  DATE_SUB(DATE_SUB(DATE_SUB(curdate(),INTERVAL -1 DAY),INTERVAL 1 second ),INTERVAL 1 day), 0, 1, &apos;测试统计结余2&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-10-29 08:43:17&apos;, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `statistic_stockstage`(`Id`, `DateTag`, `StartDate`, `EndDate`, `BillType`, `StatisticType`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `StageInStockNum`, `StageInStockCostInTax`, `StageInStockCostNoTax`, `StageOutStockNum`, `StageOutStockCostInTax`, `StageOutStockCostNoTax`, `StockTurnOverNum`, `StockTurnOverInValue`, `StockTurnOverNoValue`, `StockTurnOverNumDays`, `InTaxStockTurnOverValueDays`, `NoTaxStockTurnOverValueDays`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;6&apos;, &apos;2019-10-28&apos;, date_sub(CURRENT_DATE,interval 1 day),  DATE_SUB(DATE_SUB(DATE_SUB(curdate(),INTERVAL -1 DAY),INTERVAL 1 second ),INTERVAL 1 day), 0, 1, &apos;测试统计结余3&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, 0.00000000, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-10-29 08:43:17&apos;, NULL, NULL, NULL, NULL, 0);
 
 /*上月最后一天移动加权*/
 INSERT INTO `statistic_stockprice`(`Id`, `Date`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `StockNum`, `PriceMoveRateInTax`, `PriceMoveRateNoTax`, `PriceMonthRateInTax`, `PriceMonthRateNoTax`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;1&apos;, last_day(date_sub(now(),interval 1 month)), &apos;www-移动加权&apos;, &apos;www&apos;, &apos;www&apos;, &apos;www&apos;, &apos;www&apos;, 0, 10.00000000, 10.00000000, 0.00000000, 0.00000000, &apos;&apos;, &apos;2019-10-29 13:59:46&apos;, NULL, NULL, NULL, NULL, 0);
@@ -1319,12 +1333,7 @@ INSERT INTO `statistic_stockprice`(`Id`, `Date`, `ShipperId`, `ShipperName`, `Ca
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">5000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="任务-单据结余102" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1381,6 +1390,48 @@ INSERT INTO `statistic_stockprice`(`Id`, `Date`, `ShipperId`, `ShipperName`, `Ca
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="任务-同步历史数据（1.0.4新增接口）" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;startTime&quot;: &quot;1999-11-28T08:12:53.673Z&quot;,&#xd;
+  &quot;endTime&quot;: &quot;1999-11-28T08:12:53.673Z&quot;,&#xd;
+  &quot;type&quot;: 0,&#xd;
+  &quot;jobId&quot;: &quot;100&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/synchrohistorydatas</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-验证统计结余条数正确" enabled="true">
             <stringProp name="dataSource">sql</stringProp>
             <stringProp name="queryType">Callable Statement</stringProp>
@@ -1401,10 +1452,6 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="resultSetHandler">Store as String</stringProp>
           </JDBCSampler>
           <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">3000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="2407819">NUM1</stringProp>
@@ -1476,12 +1523,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">5000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 阶段出库统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
@@ -1501,7 +1543,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表（1.0.4线上分页错误）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1509,7 +1551,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/v1/statistics/stage/stock/paging?startDate=${jdbcnum_1}%2000%3A00%3A00&amp;endDate=${jdbcnum_1}%2023%3A59%3A59&amp;statisticsType=1</stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/stage/stock/paging?startDate=${jdbcnum_1}%2000%3A00%3A00&amp;endDate=${jdbcnum_1}%2023%3A59%3A59&amp;statisticsType=1&amp;pageIndex=2&amp;pageSize=2</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1522,7 +1564,9 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-354752020">&quot;totalCount&quot;:1</stringProp>
+                <stringProp name="-354752017">&quot;totalCount&quot;:4</stringProp>
+                <stringProp name="1627064448">测试统计结余2</stringProp>
+                <stringProp name="1627064449">测试统计结余3</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1550,6 +1594,25 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 在库库存结余统计（1.0.4线上实时+shipperid筛选报错）" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/surplus/stock?date=${__time(yyyy-MM-dd,)}&amp;shipperId=111</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="在途库存统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
@@ -1559,6 +1622,25 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/api/v1/statistics/surplus/stockonway?date=${jdbcnum_1}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="在途库存统计（1.0.4线上实时+shipperid筛选报错）" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/surplus/stockonway?date=${__time(yyyy-MM-dd,)}&amp;shipperId=111</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1607,7 +1689,54 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-数据库插入surplus_info" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `SurplusStockNum`, `SurplusStockCostInTax`, `SurplusStockCostNoTax`, `SurplusStockOnway`, `SurplusStockAvailable`, `SurplusStockLack`, `SurplusSaleLock`, `SurplusAllocationLock`, `SurplusProductLock`, `SurplusReturnedLock`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;1&apos;, &apos;${jdbcnum_1}&apos;, &apos;第一条&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 10, 0, 0, 0, 0, 0, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-11-28 07:15:10&apos;, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `SurplusStockNum`, `SurplusStockCostInTax`, `SurplusStockCostNoTax`, `SurplusStockOnway`, `SurplusStockAvailable`, `SurplusStockLack`, `SurplusSaleLock`, `SurplusAllocationLock`, `SurplusProductLock`, `SurplusReturnedLock`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;2&apos;, &apos;${jdbcnum_1}&apos;, &apos;第二条&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 10, 0, 0, 0, 0, 0, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-11-28 07:15:10&apos;, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `SurplusStockNum`, `SurplusStockCostInTax`, `SurplusStockCostNoTax`, `SurplusStockOnway`, `SurplusStockAvailable`, `SurplusStockLack`, `SurplusSaleLock`, `SurplusAllocationLock`, `SurplusProductLock`, `SurplusReturnedLock`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;3&apos;, &apos;${jdbcnum_1}&apos;, &apos;第三条&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 10, 0, 0, 0, 0, 0, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-11-28 07:15:10&apos;, NULL, NULL, NULL, NULL, 0);
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表（1.0.4线上的分页错误）" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/surplus/stock/paging?date=${jdbcnum_1}&amp;pageIndex=2&amp;pageSize=2</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-354752017">&quot;totalCount&quot;:4</stringProp>
+                <stringProp name="1853601266">测试统计结余</stringProp>
+                <stringProp name="30948004">第三条</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表（1.0.4添加extenddata）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1628,12 +1757,72 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-354752020">&quot;totalCount&quot;:1</stringProp>
+                <stringProp name="-1256734122">{&quot;11&quot;:&quot;测试返回extenddata&quot;}</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表（1.0.4添加extenddata）" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/stage/stock/paging?startDate=${jdbcnum_1}%2000%3A00%3A00&amp;endDate=${jdbcnum_1}%2023%3A59%3A59&amp;statisticsType=1</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1256734122">{&quot;11&quot;:&quot;测试返回extenddata&quot;}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="阶段统计单据明细数量（1.0.4）" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/billitem/sum?billTypes=0&amp;startDate=${jdbcnum_1}%2000%3A00%3A00&amp;endDate=${jdbcnum_1}%2023%3A59%3A59&amp;shipperId=%E6%98%A8%E6%97%A5%E7%BB%9F%E8%AE%A1%E7%BB%93%E4%BD%99&amp;statisticsType=1</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1033532515">&quot;stageBillItemNum&quot;:100,</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
@@ -7182,7 +7371,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点单-新建（1.0.3加type、`FinishedById`、`FinishedByName`、`FinishedAt`、`CreatedByName`）" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点单-新建（1.0.3加type，`FinishedById`,`FinishedByName`,`FinishedAt`、`CreatedByName`）" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -8759,6 +8948,63 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
       &quot;lockNum&quot;: 3,&#xd;
       &quot;updatedById&quot;: &quot;string&quot;,&#xd;
       &quot;updatedAt&quot;: &quot;2019-05-09T05:04:38.479Z&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${stock}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/locks/release</stringProp>
+            <stringProp name="HTTPSampler.method">PATCH</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="204" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49590">204</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="锁-根据库存参数释放业务锁（1.0.4）" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;lockInfos&quot;: [&#xd;
+    {&#xd;
+      &quot;id&quot;: &quot;zwm&quot;,&#xd;
+      &quot;lockType&quot;: 10,&#xd;
+      &quot;itemId&quot;: &quot;zwm&quot;,&#xd;
+      &quot;relateId&quot;: &quot;123&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;123&quot;,&#xd;
+      &quot;lockNum&quot;: 6,&#xd;
+      &quot;updatedById&quot;: &quot;string&quot;,&#xd;
+      &quot;updatedAt&quot;: &quot;2019-11-29T02:18:10.957Z&quot;,&#xd;
+      &quot;shipperId&quot;: &quot;zwm-自动&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;zwm-自动&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;string&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;string&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;${storespaceid}&quot;,&#xd;
+      &quot;isCodeSingle&quot;: 0,&#xd;
+      &quot;guNumber&quot;: &quot;string&quot;&#xd;
     }&#xd;
   ]&#xd;
 }</stringProp>
@@ -13620,432 +13866,178 @@ update tb_stockmanagement set stocknum=0 where StorespaceId=&apos;${storespaceid
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="如果（If）控制器" enabled="true">
-            <stringProp name="IfController.condition">${__jexl3(&quot;${judge}&quot;==&quot;Y&quot;)}</stringProp>
-            <boolProp name="IfController.evaluateAll">false</boolProp>
-            <boolProp name="IfController.useExpression">true</boolProp>
-          </IfController>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="验证mediaR丢消息(不放在jenkins中执行)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器-【自动认证】" enabled="false">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="content-type" elementType="Header">
+              <stringProp name="Header.name">content-type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="Authorization" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${__P(authorization1,)}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">sql</stringProp>
+          <stringProp name="dbUrl">${DB-url}</stringProp>
+          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">${DB-password}</stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">${DB-user}</stringProp>
+          <stringProp name="initQuery"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-数据库清空表" enabled="false">
+          <stringProp name="dataSource">sql</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">TRUNCATE tb_inoutstocklog;
+TRUNCATE statistic_stockprice;
+
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出入库流水流水-新建（1.0.4）" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;inoutStockLogs&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;www&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;www&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;www&quot;,&#xd;
+      &quot;shipperId&quot;: &quot;${__Random(000000000,999999999,)}&quot;,&#xd;
+      &quot;shipperName&quot;: &quot;www&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;www&quot;,&#xd;
+      &quot;guNumber&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;www&quot;,&#xd;
+      &quot;toStorespaceId&quot;: &quot;www&quot;,&#xd;
+      &quot;toStorespaceName&quot;: &quot;www&quot;,&#xd;
+      &quot;toStorespaceCode&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;www&quot;,&#xd;
+      &quot;unitId&quot;: &quot;www&quot;,&#xd;
+      &quot;unitName&quot;: &quot;www&quot;,&#xd;
+      &quot;num&quot;: 0,&#xd;
+      &quot;createdById&quot;: &quot;www&quot;,&#xd;
+      &quot;createdAt&quot;: &quot;2019-10-28T02:06:02.946Z&quot;,&#xd;
+      &quot;remarks&quot;: &quot;www&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;warehouseId&quot;: &quot;www&quot;,&#xd;
+      &quot;warehouseCode&quot;: &quot;www&quot;,&#xd;
+      &quot;warehouseName&quot;: &quot;www&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;www&quot;,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${stock}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/inoutstocklogs</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">1.0.4入参添加8个字段</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="简单控制器" enabled="true"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-查询流水表num" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT count(*) from tb_inoutstocklog;
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">num1,num2</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库-删除单据404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockin}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/instocks/8563q9kdadl</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库-删除单据404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockin}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/instocks/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出库-删除404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockout}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/outstocks/8563q9kdadl</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出库-删除404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockout}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/outstocks/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-删除404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/8563q9kdadl</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-删除404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${pendin}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/waitinstocks/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待出库-删除404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${pendout}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/waitoutstocks/8563q9kdadl</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待出库-删除404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${pendout}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/waitoutstocks/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-删除404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${delivery}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/deliveries/634sfw</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-删除404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${delivery}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/deliveries/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点单-删除404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockcheck}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/checkinfos/634sfw</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点单-删除404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockcheck}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/checkinfos/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点任务-删除404不存在" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockcheck}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/checkjobs/634sfw</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点任务-删除404超长" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain">${stockcheck}</stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/api/v1/checkjobs/123456789011234567890112345678901123456789011234567890112345678901</stringProp>
-              <stringProp name="HTTPSampler.method">DELETE</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="404断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="51512">404</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-                <boolProp name="Assertion.assume_success">true</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="48625">100</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-查询移动加权平均价num" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT count(*) from  statistic_stockprice</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">num1</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="48625">100</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
         </hashTree>
       </hashTree>

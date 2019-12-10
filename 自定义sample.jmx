@@ -25,7 +25,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - Dummy Sampler" enabled="true">
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - Dummy Sampler" enabled="false">
           <boolProp name="WAITING">true</boolProp>
           <boolProp name="SUCCESFULL">true</boolProp>
           <stringProp name="RESPONSE_CODE">200</stringProp>
@@ -111,6 +111,102 @@ dqada</stringProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - Dummy Sampler" enabled="false">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+          <stringProp name="RESPONSE_DATA">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;string&quot;,
+      &quot;sendToId&quot;: &quot;string&quot;,
+      &quot;unReadMessageId&quot;: &quot;string&quot;,
+      &quot;readMessageId&quot;: &quot;string&quot;,
+      &quot;providerCode&quot;: &quot;string&quot;,
+      &quot;sendTo&quot;: &quot;string&quot;,
+      &quot;sent&quot;: true,
+      &quot;sentAt&quot;: &quot;2019-11-29T07:45:40.916Z&quot;,
+      &quot;templateId&quot;: &quot;string&quot;,
+      &quot;sendResult&quot;: &quot;string&quot;,
+      &quot;applicationId&quot;: &quot;string&quot;,
+      &quot;username&quot;: &quot;string&quot;,
+      &quot;displayName&quot;: &quot;string&quot;,
+      &quot;sendAt&quot;: &quot;2019-11-29T07:45:40.916Z&quot;,
+      &quot;message&quot;: &quot;string&quot;,
+      &quot;read&quot;: true,
+      &quot;readAt&quot;: &quot;2019-11-29T07:45:40.916Z&quot;
+    }
+  ],
+  &quot;hasErrors&quot;: true,
+  &quot;success&quot;: true,
+  &quot;allMessages&quot;: &quot;string&quot;,
+  &quot;messages&quot;: [
+    &quot;string&quot;
+  ],
+  &quot;rowsCount&quot;: 0
+}</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="断言持续时间" enabled="true">
+            <stringProp name="DurationAssertion.duration"></stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="authorization" elementType="Header">
+              <stringProp name="Header.name">authorization</stringProp>
+              <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjcwRkYzQTE1QjcyNjczOEY0ODcyOTEyREZCNEVCMEZFQTQ3REUxRjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJjUDg2RmJjbWM0OUljcEV0LTA2d19xUjk0ZkUifQ.eyJuYmYiOjE1NzUzNjA3MDQsImV4cCI6MTU3NTM2NDMwNCwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1mYXQubHVuei5jbiIsImF1ZCI6WyJodHRwczovL2lkZW50aXR5LWZhdC5sdW56LmNuL3Jlc291cmNlcyIsIndobXAtd2hvbGUtaW5zaWRlLXNlcnZpY2UtYXBpLWZhdCJdLCJjbGllbnRfaWQiOiJ3aG1wLXdob2xlLWluc2lkZS1zZXJ2aWNlLWNsaWVudC1mYXQiLCJzdWIiOiI3ZTMyODhlOC02NmJlLTRiOTAtYWE2NC1lYjkwZjRjMjc4OTYiLCJhdXRoX3RpbWUiOjE1NzUzNjA3MDQsImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IuaVsOaNruS4reW_g-euoeeQhuWRmCIsInVzZXJuYW1lIjoiZGJhZG1pbiIsIm5hbWUiOiLmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJvcmdhbml6YXRpb25JZCI6ImU0OGU4ZDY4LTMxMGQtNDg0Mi1iYmRhLTk0NzlhYTFiZGM0NCIsIm9yZ2FuaXphdGlvbk5hbWUiOiLova7lrZDnp5HmioAiLCJkZXBhcnRtZW50SWQiOiJlNDhlOGQ2OC0zMTBkLTQ4NDItYmJkYS05NDc5YWExYmRjNDQiLCJkZXBhcnRtZW50TmFtZSI6Iui9ruWtkOenkeaKgCIsImF1dGhUb2tlbiI6IjQ5NTMzOGVlLTUyZDktNGQ5NC04MjZkLTRjZjA0YzJjNjY5NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyI0ZjUwMDAwMC00YzRmLTAyMDAtOTU1OC0wOGQ1YzIxYmVmNjI6RUhS5bqU55So566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWJiYmQtMDhkM2Q1NTI5MDI1OkZDQ-WcqOiBjOWRmOW3pSIsIjVmYWMwMDAwLTNlMGEtMDAxNi1iZGMxLTA4ZDZkMzU5ZmZjYzpGSU7nrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZThlYy0wOGQ2NzUwNWNhMWE6S0ZU5paH56ug5L-h5oGv566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWVkMzItMDhkNWJjOTg4OThjOktGVOW6lOeUqOeuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC0xMzQyLTA4ZDVjNmI4ZmVkODpWUFPlrqLmiLfkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNTc0ZS0wOGQ2MjI5M2UyMTE66LSi5YqhIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZkODUtMDhkNjIyOTNkOWE2OumHh-i0reWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC0wOTUyLTA4ZDYyMjkzYzg5ODrku5Plgqjpg6giLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTA4Yy0wOGQ2MjI5M2Q3M2E65LuT5bqT55uR566hIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWZiMWQtMDhkNjg4MWQ1OTVjOua1i-ivlSIsIjVmYWMwMDAwLTNlMGEtMDAxNi1hYjg0LTA4ZDc0MzFiZjI4ZjrmtYvor5UiLCI0ZjUwMDAwMC00YzRmLTAyMDAtN2NiMi0wOGQ2MzdmMGQ2NjQ65rWL6K-V5re75Yqg6KeS6ImyIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWU3NmItMDhkNmVmMDZlY2VjOui2hee6p-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi0zNzIyLTA4ZDc1MmEzNGY0YzrotoXnuqflupTnlKjnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNmZlNi0wOGQ2MTdiOTg2MjA66L2m5Yqh6YCa57O757uf566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWM3ZjYtMDhkNWI5N2IyMmNlOui9puWei-WFs-ezu-S4reW_g-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi0xZjhlLTA4ZDczMmExMzdjMzrlh7rnurMiLCI0ZjUwMDAwMC00YzRmLTAyMDAtOTczNS0wOGQ2MjI5M2NmOWY65LqM57qn5LuT6LSf6LSj5Lq6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLThmOTctMDhkNjA4MDM0NmM4OueuoeeQhuWRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC03ZjA0LTA4ZDViYWZlNzIxMzrnrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtZjVjYS0wOGQ3NTVmZjZhYjY6566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWE1ZjQtMDhkNzY5OGFiZWQ3OueuoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi1jNzY4LTA4ZDY3NTM2MTA3Yjrln7rnoYDkv6Hmga_nrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTU4OC0wOGQzMTBlOWNjY2E6566A5Y6G5oqV6YCSIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWUwYjQtMDhkNmQ4MjExZTg3OumHkeacjeWvuei0puS4u-euoSIsIjVmYWMwMDAwLTNlMGEtMDAxNi1jNDliLTA4ZDZkODIxMTQxOTrph5HmnI3lr7notKbkuJPlkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtOTFlZS0wOGQ2ZDgyMTI3Yjk66YeR5pyN5byA56Wo5LiT5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LWY2NjktMDhkNjg4MWQ1MGRjOuW8gOWPkSIsIjVmYWMwMDAwLTNlMGEtMDAxNi02NGUxLTA4ZDZjZDQ0Nzg4MjrlvIDlj5Hop5LoibIiLCI0ZjUwMDAwMC00YzRmLTAyMDAtMzI4Yi0wOGQ2MDNkZDhiZDE65a6i5oi356uv566h55CG6ICFIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTZhMWEtMDhkNjAzZGQ5MWQyOuWuouaIt-err-S9v-eUqOiAhSIsIjVmYWMwMDAwLTNlMGEtMDAxNi0wMTk0LTA4ZDZlOGIzYmJiMDrlrqLmiLfotJ_otKPkuroiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYjlhMy0wOGQ0YmQ0MDRiYzg65a6i5oi36Zeo5bqXX2xjcm0iLCI0ZjUwMDAwMC00YzRmLTAyMDAtODQ0NS0wOGQ0ZjY3N2U3OTc65a6i5oi35Lit5b-D566h55CG5ZGYIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTc5OTctMDhkNmU4YjNjMzlhOumXqOW6l-i0n-i0o-S6uiIsIjRmNTAwMDAwLTRjNGYtMDIwMC1lM2Q3LTA4ZDYwM2RkODQwODrorqTor4HkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYTYwOC0wOGQ2MjI5M2RmZjI66K6-5aSH6L-96LiqIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWU1NWQtMDhkNjIyOTNkY2YwOueUn-S6p-S4k-WRmCIsIjRmNTAwMDAwLTRjNGYtMDIwMC0xODBmLTA4ZDYyMjkzZDQyNTrlrp7kvZPku5PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtNzJkNC0wOGQ1ZjJkMzllZGY65pWw5o2u5Lit5b-DUkQt566h55CG5ZGYIiwiNGY1MDAwMDAtNGM0Zi0wMjAwLTQwN2QtMDhkNjI0ZmM3ZTc1OuaVsOaNruS4reW_g-euoeeQhuWRmCIsIjcxNzVkMDA0LWUwOWQtNGJhOS04ZGYwLTQ0ZTQ0M2QyMjdhMzrmlbDmja7kuK3lv4PnrqHnkIblkZgiLCJiMDk4MDAwMC0zZTBkLTAwMTYtNzUxMy0wOGQ3NzJkODhjMWU65rC05bmz5LqL5Lia6YOo6LSf6LSj5Lq6IiwiNWZhYzAwMDAtM2UwYS0wMDE2LWIyZDMtMDhkNjU1YTQ4OTBiOuaWh-eroOS_oeaBr-euoeeQhuWRmCIsIjVmYWMwMDAwLTNlMGEtMDAxNi05Yzc1LTA4ZDczZjM4ODZmNDrns7vnu5_nrqHnkIblkZgiLCI1ZmFjMDAwMC0zZTBhLTAwMTYtNjMxNS0wOGQ2ZDgyMGZkMzE66ZSA5ZSuIiwiNWZhYzAwMDAtM2UwYS0wMDE2LTIwYWItMDhkNjc3Yzc3MGE3Oua8lOekuiIsIjVmYWMwMDAwLTNlMGEtMDAxNi1lNWNiLTA4ZDY4ODFkNzVlMjrmvJTnpLoiLCI0ZjUwMDAwMC00YzRmLTAyMDAtOGM3NC0wOGQ2MjI5M2NjYTY65LiA57qn5LuT6LSf6LSj5Lq6IiwiNGY1MDAwMDAtNGM0Zi0wMjAwLWRhNzEtMDhkNWFiZDg0MzNhOuW6lOeUqOi2hee6p-euoeeQhuWRmCIsIjk0ODNmZTRhLTVhODUtNDU1Ny1iYWI5LWI3NDcxODFiNTYyMzrnlKjmiLfkuK3lv4PnrqHnkIblkZgiLCI0ZjUwMDAwMC00YzRmLTAyMDAtYjI1NC0wOGQ2MjI5M2MzMWM66L-Q57u0IiwiNWZhYzAwMDAtM2UwYS0wMDE2LTAzMWMtMDhkNmQ4MjBlZWU0OuWcqOiBjOWRmOW3pSIsIjRmNTAwMDAwLTRjNGYtMDIwMC1mMjcyLTA4ZDYwM2RkODhhMjrotYTmupDmj5DkvpvogIUiXSwibHVuei1zaGFycC10ZW1wbGF0ZSI6IjEtNCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJ3aG1wLXdob2xlLWluc2lkZS1zZXJ2aWNlLWFwaS1mYXQiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.TfQWeVHlv0-5jKgC3jSvxXtX1Rf-P-j2_R0MOAbMvxF7biynJA4o_SxxQ9aCpALm2blXXuzEhsXSxmvFaGBKmzcZ_b-UtUiuv96TQ8JtsVTdDf2CpAs9DGKSUhYtlxOawnuLvU-WSwZHyuURhyefBCB_9p0SrW1eG5vQnS3QIuhUN7wT8SqF1c5oUg52ObKiI-0a1SWg_iHH75arhAKvGgNeyre-6EA_h-dV0iMrOcevbLt9bONFkob-cWgOaTYXOK59pqnLi57cftC_zm539-JesB0VYAfNFjQ_s6rBAbbH-Mzl9GGm7WrtMkJ8FuQnIDauJ75fU4Q0vPuLbHru7g</stringProp>
+            </elementProp>
+            <elementProp name="accept" elementType="Header">
+              <stringProp name="Header.name">content-type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;startTime&quot;: &quot;2011-12-03T08:11:49.478Z&quot;,&#xd;
+  &quot;endTime&quot;: &quot;2019-12-03T08:11:49.478Z&quot;,&#xd;
+  &quot;type&quot;: 1,&#xd;
+  &quot;jobId&quot;: &quot;100&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://ware-internal-api.fat.lunz.cn/api/v1/synchrohistorydatas</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="断言持续时间" enabled="true">
+            <stringProp name="DurationAssertion.duration">3000</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
       </hashTree>
     </hashTree>
   </hashTree>

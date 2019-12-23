@@ -6,7 +6,9 @@
 （1）每个sqmple请求命名，发生改变后命名后+（版本）区分，例如：新建入库单（1.0.1）（1.0.2）
 （2）对于断言等，每一个断言加注释说明哪个版本添加以及断言内容
 
-
+20191223前提：1.1.0为了验证扩展字段准确，不自动化插入数据，在各个环境手动创建表和更新视图
+（1）加入扩展字段，需要在各个环境手动创建和调用扩展字段接口，这里可以在前提加入
+（2）脚本要求格式，初始info表字段--info1    初始detail表字段--detail1
 
 
 </stringProp>
@@ -18,7 +20,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT-网关" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="FAT-网关" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="judge" elementType="Argument">
             <stringProp name="Argument.name">judge</stringProp>
@@ -148,10 +150,15 @@
             <stringProp name="Argument.value">http://identity-fat.lunz.cn/connect/token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="zulin" elementType="Argument">
+            <stringProp name="Argument.name">zulin</stringProp>
+            <stringProp name="Argument.value">basic.fat.lunz.cn</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT-网关" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT-网关" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="judge" elementType="Argument">
             <stringProp name="Argument.name">judge</stringProp>
@@ -776,7 +783,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="DB-测试对接正确" enabled="false">
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="DB-测试对接正确" enabled="true">
           <stringProp name="TestPlan.comments">【！！！！！检查连库正确前提！！！！！】
 1 确保正确的数据库连接
 2 确保关闭其他所有的sample
@@ -1485,7 +1492,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-查询获得时间" enabled="false">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-查询获得时间" enabled="true">
             <stringProp name="dataSource">sql</stringProp>
             <stringProp name="queryType">Callable Statement</stringProp>
             <stringProp name="query">SELECT Date FROM statistic_stocksurplus_info;</stringProp>
@@ -1505,7 +1512,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             </DebugPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 阶段入库统计" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 阶段入库统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1524,7 +1531,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 阶段出库统计" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 阶段出库统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1543,7 +1550,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表（1.0.4线上分页错误）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表（1.0.4线上分页错误）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1575,7 +1582,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 在库库存结余统计" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 在库库存结余统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1594,7 +1601,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 在库库存结余统计（1.0.4线上实时+shipperid筛选报错）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 在库库存结余统计（1.0.4线上实时+shipperid筛选报错）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1613,7 +1620,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="在途库存统计" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="在途库存统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1632,7 +1639,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="在途库存统计（1.0.4线上实时+shipperid筛选报错）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="在途库存统计（1.0.4线上实时+shipperid筛选报错）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1651,7 +1658,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 锁库库存统计" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 锁库库存统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1670,7 +1677,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 可用库存统计" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 可用库存统计" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1689,7 +1696,7 @@ select COUNT(*) AS NUM8 FROM statistic_stocksurplus_info;
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-数据库插入surplus_info" enabled="false">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-数据库插入surplus_info" enabled="true">
             <stringProp name="dataSource">sql</stringProp>
             <stringProp name="queryType">Callable Statement</stringProp>
             <stringProp name="query">INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperName`, `CargoesId`, `CargoesCode`, `CargoesName`, `SpecId`, `SpecName`, `FromWarehouseId`, `FromWarehouseName`, `FromWarehouseCode`, `ExtendData`, `SurplusStockNum`, `SurplusStockCostInTax`, `SurplusStockCostNoTax`, `SurplusStockOnway`, `SurplusStockAvailable`, `SurplusStockLack`, `SurplusSaleLock`, `SurplusAllocationLock`, `SurplusProductLock`, `SurplusReturnedLock`, `UnitId`, `UnitName`, `CreatedById`, `CreatedAt`, `UpdatedById`, `UpdatedAt`, `DeletedById`, `DeletedAt`, `Deleted`) VALUES (&apos;1&apos;, &apos;${jdbcnum_1}&apos;, &apos;第一条&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, NULL, &apos;string&apos;, &apos;string&apos;, &apos;string&apos;, NULL, 10, 100.00000000, 100.00000000, 0, 10, 0, 0, 0, 0, 0, &apos;string&apos;, &apos;string&apos;, &apos;&apos;, &apos;2019-11-28 07:15:10&apos;, NULL, NULL, NULL, NULL, 0);
@@ -1704,7 +1711,7 @@ INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperNam
             <stringProp name="resultSetHandler">Store as String</stringProp>
           </JDBCSampler>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表（1.0.4线上的分页错误）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表（1.0.4线上的分页错误）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1736,7 +1743,7 @@ INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperNam
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表（1.0.4添加extenddata）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 库存报表列表（1.0.4添加extenddata）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1766,7 +1773,7 @@ INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperNam
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表（1.0.4添加extenddata）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存阶段统计列表（1.0.4添加extenddata）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1796,7 +1803,7 @@ INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperNam
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="阶段统计单据明细数量（1.0.4）" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="阶段统计单据明细数量（1.0.4）" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -1827,7 +1834,7 @@ INSERT INTO `statistic_stocksurplus_info`(`Id`, `Date`, `ShipperId`, `ShipperNam
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="前置仓库货位条件+数据清理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="前置仓库货位条件+数据清理" enabled="true"/>
         <hashTree>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
             <stringProp name="dataSource">sql</stringProp>
@@ -2035,7 +2042,7 @@ DELETE from tb_stockbillrelate WHERE Id = &apos;zwm&apos; or RelateId=&apos;zwm&
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1.0.3线上缺陷" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1.0.3线上缺陷" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="子级仓库---新建" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -2235,7 +2242,7 @@ DELETE from tb_stockbillrelate WHERE Id = &apos;zwm&apos; or RelateId=&apos;zwm&
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1.0.4线上缺陷" enabled="false">
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1.0.4线上缺陷库存不能更新为负数" enabled="true">
           <stringProp name="TestPlan.comments">此缺陷为库存不能更新为负数</stringProp>
         </GenericController>
         <hashTree>
@@ -2430,7 +2437,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="入库" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="入库" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库-新建入库单" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -3239,7 +3246,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="出库" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="出库" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出库-新建" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -3319,15 +3326,10 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
           </HTTPSamplerProxy>
           <hashTree>
             <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-              <stringProp name="JSONPostProcessor.referenceNames">stockoutid</stringProp>
-              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.outStockDetails[0].id</stringProp>
-              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
-            </JSONPostProcessor>
-            <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-              <stringProp name="JSONPostProcessor.referenceNames">stockoutinfoid</stringProp>
-              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
-              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.referenceNames">stockoutid;stockoutinfoid</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.outStockDetails[0].id;$.data.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1;1</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">0;0</stringProp>
             </JSONPostProcessor>
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
@@ -4047,7 +4049,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="待入库" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="待入库" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待入库-新建" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -4870,7 +4872,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="待出库" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="待出库" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待出库-新建" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5711,7 +5713,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="确认发货" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="确认发货" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-新建(1.0.3加12个字段)" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5749,6 +5751,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
   &quot;createdById&quot;: &quot;string&quot;,&#xd;
   &quot;createdByName&quot;: &quot;string&quot;,&#xd;
   &quot;createdAt&quot;: &quot;2019-05-08T07:40:30.511Z&quot;,&#xd;
+  &quot;ExtendField&quot;:{&quot;info1&quot;:&quot;info&quot;},&#xd;
   &quot;deliveryDetails&quot;: [&#xd;
     {&#xd;
       &quot;relateId&quot;: &quot;string&quot;,&#xd;
@@ -5775,7 +5778,8 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
       &quot;unitName&quot;: &quot;string&quot;,&#xd;
       &quot;isCodeSingle&quot;: false,&#xd;
       &quot;relateType&quot;: 0,&#xd;
-      &quot;ExtendData&quot;:{&quot;age&quot;:122,&quot;name&quot;:&quot;asdasdqwe&quot;,&quot;TIME&quot;: &quot;2019-05-06T06:23:56.479Z&quot;}&#xd;
+      &quot;ExtendData&quot;:{&quot;age&quot;:122,&quot;name&quot;:&quot;asdasdqwe&quot;,&quot;TIME&quot;: &quot;2019-05-06T06:23:56.479Z&quot;},&#xd;
+      &quot;ExtendField&quot;:{&quot;detail1&quot;:&quot;detail&quot;}&#xd;
     }&#xd;
   ]&#xd;
 }</stringProp>
@@ -5799,15 +5803,10 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
           </HTTPSamplerProxy>
           <hashTree>
             <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-              <stringProp name="JSONPostProcessor.referenceNames">deliveryid</stringProp>
-              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.deliveryDetails[0].id</stringProp>
-              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
-            </JSONPostProcessor>
-            <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
-              <stringProp name="JSONPostProcessor.referenceNames">deliveryinfoid</stringProp>
-              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
-              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.referenceNames">deliveryid;deliveryinfoid</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.deliveryDetails[0].id;$.data.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1;1</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">0;0</stringProp>
             </JSONPostProcessor>
             <hashTree/>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
@@ -5828,6 +5827,17 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
               <boolProp name="INVERT">false</boolProp>
               <boolProp name="ISREGEX">true</boolProp>
             </JSONPathAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.1.0】断言扩展字段" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-902523155">info1&quot;:&quot;info&quot;</stringProp>
+                <stringProp name="-1388999163">&quot;detail1&quot;:&quot;detail&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
             <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-编辑（1.0.3加12个字段）" enabled="true">
@@ -5867,6 +5877,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
   &quot;updatedById&quot;: &quot;www&quot;,&#xd;
   &quot;updatedByName&quot;: &quot;1.0.2&quot;,&#xd;
   &quot;updatedAt&quot;: &quot;2019-05-08T07:51:53.538Z&quot;,&#xd;
+  &quot;ExtendField&quot;:{&quot;info1&quot;:&quot;info1&quot;},&#xd;
   &quot;deliveryDetails&quot;: [&#xd;
     {&#xd;
       &quot;relateId&quot;: &quot;${relateid}&quot;,&#xd;
@@ -5894,7 +5905,8 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
       &quot;isCodeSingle&quot;: false,&#xd;
       &quot;relateType&quot;: 0,&#xd;
       &quot;id&quot;: &quot;${deliveryid}&quot;,&#xd;
-      &quot;ExtendData&quot;:{&quot;age&quot;:21,&quot;name&quot;:&quot;zwm&quot;,&quot;TIME&quot;: &quot;2019-05-06T06:23:56.479Z&quot;}&#xd;
+      &quot;ExtendData&quot;:{&quot;age&quot;:21,&quot;name&quot;:&quot;zwm&quot;,&quot;TIME&quot;: &quot;2019-05-06T06:23:56.479Z&quot;},&#xd;
+      &quot;ExtendField&quot;:{&quot;detail1&quot;:&quot;detail1&quot;},&#xd;
     }&#xd;
   ]&#xd;
 }</stringProp>
@@ -6057,6 +6069,17 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.1.0】断言扩展字段" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2086553766">info1&quot;:&quot;info1&quot;</stringProp>
+                <stringProp name="-109300594">&quot;detail1&quot;:&quot;detail1&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-获得主列表分页" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -6066,7 +6089,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/v1/deliveries/paging?filter.rules[0].field=id&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=${deliveryinfoid}&amp;filter.rules[1].field=receiveTel&amp;filter.rules[1].op=eq&amp;&amp;filter.rules[1].data=6</stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/deliveries/paging?filter.rules[0].field=id&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=${deliveryinfoid}&amp;filter.rules[1].field=receiveTel&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=6&amp;filter.rules[2].field=ExtendField:info1&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=info1&amp;filter.rules[2].type=string</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -6107,6 +6130,16 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.1.0】断言扩展字段" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2086553766">info1&quot;:&quot;info1&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-获得主表数量" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -6116,7 +6149,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/v1/deliveries/count?filter.rules[0].field=id&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=${deliveryinfoid}</stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/deliveries/count?filter.rules[0].field=id&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=${deliveryinfoid}&amp;filter.rules[1].field=receiveTel&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=6&amp;filter.rules[2].field=ExtendField:info1&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=info1&amp;filter.rules[2].type=string</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -6146,7 +6179,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/v1/deliverydetails/paging?filter.rules[0].field=ExtendData:age&amp;filter.rules[0].data=21&amp;filter.rules[0].Type=int&amp;filter.rules[0].op=eq&amp;filter.rules[1].field=ExtendData:name&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=zwm&amp;filter.rules[1].Type=string&amp;filter.rules[2].field=ExtendData:TIME&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=2019-05-06T06:23:56.479Z&amp;filter.rules[2].Type=string&amp;filter.op=and&amp;filter.rules[3].field=id&amp;filter.rules[3].op=eq&amp;filter.rules[3].data=${deliveryid}</stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/deliverydetails/paging?filter.rules[0].field=ExtendData:age&amp;filter.rules[0].data=21&amp;filter.rules[0].Type=int&amp;filter.rules[0].op=eq&amp;filter.rules[1].field=ExtendData:name&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=zwm&amp;filter.rules[1].Type=string&amp;filter.rules[2].field=ExtendField:info1&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=info1&amp;filter.rules[2].type=string&amp;filter.op=and&amp;filter.rules[3].field=id&amp;filter.rules[3].op=eq&amp;filter.rules[3].data=${deliveryid}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -6186,6 +6219,17 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.1.0】断言扩展字段" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2086553766">info1&quot;:&quot;info1&quot;</stringProp>
+                <stringProp name="-109300594">&quot;detail1&quot;:&quot;detail1&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-获得明细数量" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -6195,7 +6239,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/api/v1/deliverydetails/count?filter.rules[0].field=id&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=${deliveryid}</stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/deliverydetails/count?filter.rules[0].field=ExtendData:age&amp;filter.rules[0].data=21&amp;filter.rules[0].Type=int&amp;filter.rules[0].op=eq&amp;filter.rules[1].field=ExtendData:name&amp;filter.rules[1].op=eq&amp;filter.rules[1].data=zwm&amp;filter.rules[1].Type=string&amp;filter.rules[2].field=ExtendField:info1&amp;filter.rules[2].op=eq&amp;filter.rules[2].data=info1&amp;filter.rules[2].type=string&amp;filter.op=and&amp;filter.rules[3].field=id&amp;filter.rules[3].op=eq&amp;filter.rules[3].data=${deliveryid}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -6258,6 +6302,17 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.0.3】12个字段断言" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="1786713168">&quot;receiveTel&quot;:&quot;6&quot;,</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.1.0】断言扩展字段" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2086553766">info1&quot;:&quot;info1&quot;</stringProp>
+                <stringProp name="-109300594">&quot;detail1&quot;:&quot;detail1&quot;</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -6355,6 +6410,16 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
               <boolProp name="ISREGEX">true</boolProp>
             </JSONPathAssertion>
             <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="【1.1.0】断言扩展字段" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1011175391">detail1&quot;:null</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="确认发货-批量删除确认发货单明细(1.0.2)" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -6387,7 +6452,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="库存+流水" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="库存+流水" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出入库流水流水-新建（1.0.4）" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -7062,7 +7127,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="盘点" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="盘点" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="盘点任务-新建盘点任务粒度10" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -8410,7 +8475,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="锁+关联" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="锁+关联" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="锁-新建业务锁单个" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9084,7 +9149,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="字典+关联货主" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="字典+关联货主" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="字典-获得列表" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -9360,7 +9425,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="货位" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="货位" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="货位-编辑" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -9724,7 +9789,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="仓库" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="仓库" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="仓库-新建批量" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -10653,7 +10718,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】移库-1.0.2-1.0.3拆分微服务" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】移库-1.0.2-1.0.3拆分微服务" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="移库-新建移库单" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11034,7 +11099,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】调拨-1.0.2-1.0.3拆分微服务" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】调拨-1.0.2-1.0.3拆分微服务" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="调拨-新建调拨单" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -11536,7 +11601,7 @@ DELETE from tb_stockmanagement where CargoesId=&apos;1.0.4线上缺陷&apos;;
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】json字段---测试json字段的盘点模块不同粒度下返回" enabled="false">
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】json字段---测试json字段的盘点模块不同粒度下返回" enabled="true">
           <stringProp name="TestPlan.comments">与其他任何控制器无耦合</stringProp>
         </GenericController>
         <hashTree>
@@ -12533,7 +12598,7 @@ update tb_stockmanagement set stocknum=0 where StorespaceId=&apos;${storespaceid
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】预警" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】预警" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="预警-新建" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -13187,7 +13252,7 @@ update tb_stockmanagement set stocknum=0 where StorespaceId=&apos;${storespaceid
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】组装+拆分" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="【1.0.3】组装+拆分" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="拆分-新建" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -13489,7 +13554,342 @@ update tb_stockmanagement set stocknum=0 where StorespaceId=&apos;${storespaceid
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="删除接口" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1.0.4线上缺陷结余锁的数量当锁表不带warehouseid时结余不出来" enabled="true">
+          <stringProp name="TestPlan.comments">锁库库存统计，线上bug当锁库时不带warehouseid时对应到statisticstocksurplusinfo表对不上数据（因为surplusinfo表一定是shipperid、cargoesid、storespaceid聚合）</stringProp>
+        </GenericController>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">/*删除锁表数据，防止relateid、relateitenid重复*/
+DELETE from tb_stocklockinfo where ShipperId=&apos;自动-测试锁结余&apos;;
+
+/*删除锁和单据关联表数据，该表id、itemid、relateid、relateitemid联合主键，这里使用delete删除*/
+DELETE from tb_stockbillrelate WHERE Id = &apos;自动-测试锁结余&apos;;
+
+/*删除出入库流水表数据*/
+DELETE from tb_inoutstocklog WHERE shipperId=&apos;自动-测试锁结余&apos;;
+
+
+/*删除结余info表数据*/
+DELETE from statistic_stocksurplus_info WHERE shipperId=&apos;自动-测试锁结余&apos;;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出入库流水流水-新建（1.0.4）" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;inoutStockLogs&quot;: [&#xd;
+    {&#xd;
+      &quot;relateId&quot;: &quot;www&quot;,&#xd;
+      &quot;relateCode&quot;: &quot;www&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;www&quot;,&#xd;
+      &quot;shipperId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+      &quot;shipperName&quot;: &quot;www&quot;,&#xd;
+      &quot;batchNo&quot;: &quot;www&quot;,&#xd;
+      &quot;guNumber&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;www&quot;,&#xd;
+      &quot;toStorespaceId&quot;: &quot;www&quot;,&#xd;
+      &quot;toStorespaceName&quot;: &quot;www&quot;,&#xd;
+      &quot;toStorespaceCode&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;www&quot;,&#xd;
+      &quot;unitId&quot;: &quot;www&quot;,&#xd;
+      &quot;unitName&quot;: &quot;www&quot;,&#xd;
+      &quot;num&quot;: 0,&#xd;
+      &quot;createdById&quot;: &quot;www&quot;,&#xd;
+      &quot;createdAt&quot;: &quot;${__timeShift(YYYY-MM-dd HH:mm:ss,,P-1D,,)}&quot;,&#xd;
+      &quot;remarks&quot;: &quot;www&quot;,&#xd;
+      &quot;priceNoTax&quot;: 0,&#xd;
+      &quot;priceInTax&quot;: 0,&#xd;
+      &quot;taxRate&quot;: 0,&#xd;
+      &quot;taxAmount&quot;: 0,&#xd;
+      &quot;warehouseId&quot;: &quot;www&quot;,&#xd;
+      &quot;warehouseCode&quot;: &quot;www&quot;,&#xd;
+      &quot;warehouseName&quot;: &quot;www&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;www&quot;,&#xd;
+      &quot;relateType&quot;: 0&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${stock}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/inoutstocklogs</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">1.0.4入参添加8个字段</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="库存-新建" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;stockDetails&quot;: [&#xd;
+    {&#xd;
+      &quot;batchNo&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesId&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesCode&quot;: &quot;www&quot;,&#xd;
+      &quot;cargoesName&quot;: &quot;www&quot;,&#xd;
+      &quot;shipperId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+      &quot;shipperName&quot;: &quot;www&quot;,&#xd;
+      &quot;batchNoOriginal&quot;: &quot;www&quot;,&#xd;
+      &quot;produceTime&quot;: &quot;2019-05-07T06:27:02.826Z&quot;,&#xd;
+      &quot;expirationTime&quot;: &quot;2019-05-07T06:27:02.826Z&quot;,&#xd;
+      &quot;fromWarehouseId&quot;: &quot;www&quot;,&#xd;
+      &quot;fromWarehouseName&quot;: &quot;www&quot;,&#xd;
+      &quot;fromWarehouseCode&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceId&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceName&quot;: &quot;www&quot;,&#xd;
+      &quot;storespaceCode&quot;: &quot;www&quot;,&#xd;
+      &quot;unitId&quot;: &quot;www&quot;,&#xd;
+      &quot;unitName&quot;: &quot;www&quot;,&#xd;
+      &quot;stockNum&quot;: 10,&#xd;
+      &quot;createdById&quot;: &quot;www&quot;,&#xd;
+      &quot;createdAt&quot;: &quot;2019-05-07T06:27:02.826Z&quot;,&#xd;
+      &quot;updatedById&quot;: &quot;www&quot;,&#xd;
+      &quot;updatedAt&quot;: &quot;2019-05-07T06:27:02.826Z&quot;,&#xd;
+      &quot;priceNoTax&quot;: 100,&#xd;
+      &quot;priceInTax&quot;: 100,&#xd;
+      &quot;isCodeSingle&quot;: false,&#xd;
+      &quot;guNumber&quot;: &quot;www&quot;,&#xd;
+      &quot;ExtendData&quot;:{&quot;age&quot;:21,&quot;name&quot;:&quot;zwm&quot;,&quot;TIME&quot;: &quot;2019-05-06T06:23:56.479Z&quot;}&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${stock}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/stocks</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">1.0.4添加pricenotax、priceintax</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="锁-新建业务锁单个" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;lockInfo&quot;: {&#xd;
+    &quot;cargoesId&quot;: &quot;www&quot;,&#xd;
+    &quot;shipperId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+    &quot;lockType&quot;: 10,&#xd;
+    &quot;relateId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+    &quot;relateItemId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+    &quot;count&quot;: 1,&#xd;
+    &quot;batchNo&quot;: &quot;&quot;,&#xd;
+    &quot;guNumber&quot;: &quot;&quot;,&#xd;
+    &quot;createdById&quot;: &quot;string&quot;,&#xd;
+    &quot;createdAt&quot;: &quot;2019-08-15T00:51:01.019Z&quot;,&#xd;
+    &quot;isCodeSingle&quot;: false&#xd;
+  },&#xd;
+  &quot;rule&quot;: 0&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${stock}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/locks</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON提取器" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">lockid1.0.4</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="关联-新建需要传入id" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;lockInfos&quot;: [&#xd;
+    {&#xd;
+      &quot;id&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+      &quot;itemId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+      &quot;relateId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+      &quot;relateItemId&quot;: &quot;自动-测试锁结余&quot;,&#xd;
+      &quot;lockKeyId&quot;: &quot;${lockid1.0.4}&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${stock}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/relates/lockid</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="任务-单据结余100" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;jobId&quot;: &quot;100&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/timejobs</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" 锁库库存统计" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${statistics}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/statistics/surplus/stocklock?shipperId=自动-测试锁结余&amp;date=${__timeShift(YYYY-MM-dd,,P-1D,,)}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-580721729">{&quot;data&quot;:{&quot;lockedStockNum&quot;:1,&quot;unitId&quot;:&quot;www&quot;,&quot;unitName&quot;:&quot;www&quot;}}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="删除接口" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库-删除单据" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -13861,6 +14261,509 @@ update tb_stockmanagement set stocknum=0 where StorespaceId=&apos;${storespaceid
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="租赁代管1.1.0" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新建仓库" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;parentId&quot;: &quot;&quot;,&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;name&quot;: &quot;zwm-自动租赁代管&quot;,&#xd;
+  &quot;type&quot;: 0,&#xd;
+  &quot;flag&quot;: 0,&#xd;
+  &quot;applicationId&quot;: &quot;string&quot;,&#xd;
+  &quot;address&quot;: &quot;string&quot;,&#xd;
+  &quot;enabled&quot;: true,&#xd;
+  &quot;description&quot;: &quot;zwm测试&quot;,&#xd;
+  &quot;provinceName&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;cityCode&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;cityName&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;areaCode&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;areaName&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;shipperId&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;appTypeId&quot;: &quot;1.0.2&quot;,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-05-06T06:59:26.588Z&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${basic}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/warehouses</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">warehouseid-zulin</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">22</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新建货位" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;warehouseId&quot;: &quot;${warehouseid-zulin}&quot;,&#xd;
+  &quot;code&quot;: &quot;string&quot;,&#xd;
+  &quot;warehouseCode&quot;: &quot;string&quot;,&#xd;
+  &quot;name&quot;: &quot;zwm-自动租赁代管&quot;,&#xd;
+  &quot;address&quot;: &quot;string&quot;,&#xd;
+  &quot;phNumber&quot;: &quot;string&quot;,&#xd;
+  &quot;enabled&quot;: true,&#xd;
+  &quot;description&quot;: &quot;zwm测试&quot;,&#xd;
+  &quot;storespaceType&quot;: 0,&#xd;
+  &quot;createdById&quot;: &quot;string&quot;,&#xd;
+  &quot;createdAt&quot;: &quot;2019-05-06T07:05:18.610Z&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${basic}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/storespaces</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">storespaceid-zulin</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">22</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新建租用关系" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;items&quot;: [&#xd;
+    {&#xd;
+      &quot;ownerShipperId&quot;: &quot;zwm-自动&quot;,&#xd;
+      &quot;userShipperId&quot;: &quot;userShipperId&quot;,&#xd;
+      &quot;useType&quot;: 10,&#xd;
+      &quot;status&quot;: 0,&#xd;
+      &quot;startTime&quot;: &quot;2019-12-19T01:59:19.913Z&quot;,&#xd;
+      &quot;endTime&quot;: &quot;2019-12-19T01:59:19.913Z&quot;,&#xd;
+      &quot;placeType&quot;: 10,&#xd;
+      &quot;placeId&quot;: &quot;${warehouseid-zulin}&quot;,&#xd;
+      &quot;placeCode&quot;: &quot;string&quot;,&#xd;
+      &quot;relatePlaceId&quot;: &quot;${warehouseid-zulin}&quot;,&#xd;
+      &quot;relatePlaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;isTop&quot;: true,&#xd;
+      &quot;createdById&quot;: &quot;string&quot;,&#xd;
+      &quot;createdAt&quot;: &quot;2019-12-19T01:59:19.913Z&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-找代管租赁的id" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">/*找到刚刚新建的代管组租赁关系的id*/
+SELECT Id FROM basic_placeuserecord ORDER BY id  DESC LIMIT 1;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">zulinid</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="编辑租用关系" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+  &quot;items&quot;: [&#xd;
+    {&#xd;
+      &quot;ownerShipperId&quot;: &quot;zwm-自动&quot;,&#xd;
+      &quot;userShipperId&quot;: &quot;userShipperId&quot;,&#xd;
+      &quot;useType&quot;: 10,&#xd;
+      &quot;status&quot;: 10,&#xd;
+      &quot;startTime&quot;: &quot;2019-12-19T01:59:19.913Z&quot;,&#xd;
+      &quot;endTime&quot;: &quot;2019-12-19T01:59:19.913Z&quot;,&#xd;
+      &quot;placeType&quot;: 10,&#xd;
+      &quot;placeId&quot;: &quot;${warehouseid-zulin}&quot;,&#xd;
+      &quot;placeCode&quot;: &quot;string&quot;,&#xd;
+      &quot;extenddata&quot;:{&quot;111&quot;:&quot;222&quot;,&quot;name&quot;:&quot;123&quot;},&#xd;
+      &quot;relatePlaceId&quot;: &quot;${storespaceid-zulin}&quot;,&#xd;
+      &quot;relatePlaceCode&quot;: &quot;string&quot;,&#xd;
+      &quot;isTop&quot;: true,&#xd;
+      &quot;id&quot;: &quot;${zulinid_1}&quot;,&#xd;
+      &quot;updatedById&quot;: &quot;string&quot;,&#xd;
+      &quot;updatedAt&quot;: &quot;2019-12-19T01:59:19.913Z&quot;&#xd;
+    }&#xd;
+  ]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获得租用关系列表paging" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/paging?filter.rules[0].field=extendData:111&amp;filter.rules[0].type=string&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=222&amp;filter.op=and</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-返回结果存在“zwm-自动&quot;" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1725152552">&quot;ownerShipperId&quot;:&quot;zwm-自动&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获得租用关系列表count" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/count?filter.rules[0].field=extendData:111&amp;filter.rules[0].type=string&amp;filter.rules[0].op=eq&amp;filter.rules[0].data=222&amp;filter.op=and</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-查到count不等于0" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1276997389">{&quot;count&quot;:0}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">20</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="根据id获得代管租赁信息" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/${zulinid_1}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1129803620">ownerShipperId&quot;:&quot;zwm-自动</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="是否租赁-客户角度" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/isrentcreate?placeId=${storespaceid-zulin}&amp;userShipperId=userShipperId</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-返回true" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1395606278">{&quot;data&quot;:true}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="是否租赁-所有者角度" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/isrentfrom?placeId=${warehouseid-zulin}&amp;placeType=10&amp;ownerShipperId=zwm-%E8%87%AA%E5%8A%A8&amp;isIncludeParents=true</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-返回true" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1395606278">{&quot;data&quot;:true}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-将数据的类型变为代管" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">/*更新刚刚新建的租赁关系的类型为代管*/
+UPDATE basic_placeuserecord SET UseType=20 WHERE Id=&apos;${zulinid_1}&apos;;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">zulinid</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="是否重复代管租用-租用者角度" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/isholdduplicated?placeId=${warehouseid-zulin}&amp;userShipperId=userShipperId</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-返回true" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1395606278">{&quot;data&quot;:true}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获得代管租用的仓库列表" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/rentwarehouses?ownerShipperId=zwm-%E8%87%AA%E5%8A%A8&amp;userShipperId=userShipperId</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-&quot;name&quot;:&quot;zwm-自动租赁代管&quot;" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-595838136">name&quot;:&quot;zwm-自动租赁代管&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request-将数据的类型变为货位并且placeid变为货位id" enabled="true">
+            <stringProp name="dataSource">sql</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">/*更新刚刚新建的租赁关系的placetype=20并且placeid变为货位id*/
+UPDATE basic_placeuserecord SET PlaceId=&apos;${storespaceid-zulin}&apos;, PlaceType=20 WHERE Id=&apos;${zulinid_1}&apos;;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">zulinid</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获得代管租用的货位" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords/rentstorespaces?ownerShipperId=zwm-%E8%87%AA%E5%8A%A8&amp;userShipperId=userShipperId</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言-&quot;name&quot;:&quot;zwm-自动租赁代管&quot;" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-595838136">name&quot;:&quot;zwm-自动租赁代管&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="删除租用关系" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${zulin}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/api/v1/placeuserecords?ids=${zulinid_1}</stringProp>
+            <stringProp name="HTTPSampler.method">DELETE</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1395606278">{&quot;data&quot;:true}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
